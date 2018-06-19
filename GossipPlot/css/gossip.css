@@ -1,0 +1,15 @@
+#canvas{
+    border-color: black; 
+    border-style: solid; 
+    border-width: 0px;
+}
+
+label{
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+.input-txt{
+    width: 50px;
+}
+

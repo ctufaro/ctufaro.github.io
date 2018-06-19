@@ -1,0 +1,28 @@
+<html>
+<head>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/gossip.css" rel="stylesheet" type="text/css"> 
+</head>
+<body>
+    <div style="margin:20 20 20 20;">
+        <canvas id="canvas" width="500" height="500"></canvas>
+        <div style="margin:20 20 20 20;">
+            <button type="button" class="btn btn-success" id="btnInfectRun">
+                <span class="glyphicon glyphicon-play"></span> Run
+            </button>
+            <button type="button" id="btnInfectStart" class="btn btn-success">Spread Gossip</button>
+            <button type="button" id="btnReset" class="btn btn-info">Reset</button>
+            <label>Nodes</label><input type="number" class="input-txt" id="nodecount" step="1" value="1000" min="2" max="1000">
+            <label>Fanout</label><input type="number" class="input-txt" id="fanout" step="1" value="2" min="1" max="1000">
+            <label>Init</label><input type="number" class="input-txt" id="initinf" step="1" value="1" min="1" max="1000">
+        </div>
+        <div>
+            <!--all nodes reached-->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="js/gossip.js"></script>
+</body>
+</html>
