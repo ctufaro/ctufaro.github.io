@@ -2,13 +2,14 @@ var Gossip = function () {
 
     var nodes = [];
     var infectedIndex = [];
-    var blue = "#3179B5";
+    var blue = "#0079FF";
     var crimson = "#DE514A";
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext('2d');
     var points;
     var fanout;
     var infectStart;
+    var steps;
     var radius = 250;
     var recx = 9;
     var recy = 9;   
@@ -37,8 +38,8 @@ var Gossip = function () {
             RunInfection();
         });        
 
-        $("#btnReset").click(function () {
-            Reset();
+        $("#btnReload").click(function () {
+            Reload();
         });        
     }
 
@@ -47,7 +48,7 @@ var Gossip = function () {
         if(jQuery.inArray(retval, infectedIndex) == -1){
             infectedIndex.push(retval);
             if(infectedIndex.length == nodes.length){
-                console.log("Done");
+                AllInfected();
             }
         }
         return retval;
@@ -63,6 +64,7 @@ var Gossip = function () {
         ctx.fillRect(dest.x,dest.y,recx,recy);
         ctx.strokeStyle="#FF0000";
         ctx.stroke();
+        $('#steps').html(steps++);
     }
 
     var InitInfect = function(num){
@@ -74,14 +76,18 @@ var Gossip = function () {
         }
     }
 
-    var Reset = function(){
+    var Reload = function(){
         points = parseInt($("#nodecount").val());
         fanout = parseInt($("#fanout").val());
         infectStart = parseInt($("#initinf").val());
+        steps = 0;
+        $('#steps').html(steps);
         nodes = [];
         infectedIndex = [];
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         DrawCanvas();
+        $("#btnInfectStart").prop('disabled', false);
+        $("#btnInfectRun").prop('disabled', false);
     }
 
     var StartInfection = function(){        
@@ -92,11 +98,9 @@ var Gossip = function () {
         for(var i = 0; i < infectedIndex.length; i++){
             //each infected node will fanout
             var infectedNode = nodes[infectedIndex[i]];
-            var tmp = fanout;
-            while(tmp)
+            for(var f = fanout; f > 0; f--)
             {                
                 ConnectInfect(infectedNode, nodes[GetRandNode()]);
-                tmp--;
             }            
         }       
     }
@@ -106,11 +110,17 @@ var Gossip = function () {
             StartInfection();
         }
     }
+
+    var AllInfected = function(){
+        $("#btnInfectStart").prop('disabled', true);
+        $("#btnInfectRun").prop('disabled', true);
+    }
     
     var Init = function () {
         points = parseInt($("#nodecount").val());
         fanout = parseInt($("#fanout").val());
         infectStart = parseInt($("#initinf").val());
+        steps = parseInt($("#steps").html());
         DrawCanvas();
         WireUpUIEvents();
     }();    
