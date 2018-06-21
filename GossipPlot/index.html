@@ -1,29 +1,104 @@
-<html>
-<head>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/gossip.css" rel="stylesheet" type="text/css"> 
-</head>
-<body>
-    <div style="margin:20 20 20 20;">
-        <canvas id="canvas" width="500" height="500"></canvas>
-        <div style="margin:20 20 20 20;">
-            <button type="button" class="btn btn-success" id="btnInfectRun">
-                <span class="glyphicon glyphicon-play"></span> Run
-            </button>
-            <button type="button" id="btnInfectStart" class="btn btn-success">Spread Gossip</button>
-            <button type="button" id="btnReload" class="btn btn-info">Reload</button>
-            <label>Nodes</label><input type="number" class="input-txt" id="nodecount" step="1" value="100" min="2" max="1000">
-            <label>Fanout</label><input type="number" class="input-txt" id="fanout" step="1" value="2" min="1" max="1000">
-            <label>Init</label><input type="number" class="input-txt" id="initinf" step="1" value="1" min="1" max="1000">
-            <label>Edges</label><span id="steps">0</span>
-        </div>
-        <div>
-            <!--all nodes reached-->
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
 
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Spreading Gossip Simulator</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/1-col-portfolio.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Christopher Tufaro</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading -->
+      <h2 class="my-4">Spreading Gossip Simulator</h2>
+
+      <!-- Project One -->
+      <div class="row">
+        <div class="col-md-7">
+            <div>
+                <canvas id="canvas" width="500" height="500"></canvas>
+                <div>
+                    <button type="button" class="btn btn-success" id="btnInfectRun">
+                        <span class="glyphicon glyphicon-play"></span> Run
+                    </button>
+                    <button type="button" id="btnInfectStart" class="btn btn-success">Spread Gossip</button>
+                    <button type="button" id="btnReload" class="btn btn-primary">Reload</button>
+                </div>
+                <div>
+                    <label>Nodes</label><input type="number" class="input-txt" id="nodecount" step="1" value="100" min="2" max="1000">
+                    <label>Fanout</label><input type="number" class="input-txt" id="fanout" step="1" value="2" min="1" max="1000">
+                    <label>Init</label><input type="number" class="input-txt" id="initinf" step="1" value="1" min="1" max="1000">
+                    <label>Edges</label><span id="steps">0</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+          <h3>Broadcasting Blockchain Data</h3>
+          <p>Within the Bitcoin Network.</p>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
     <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="js/gossip.js"></script>
-</body>
+
+  </body>
+
 </html>
