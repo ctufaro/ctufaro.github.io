@@ -14,9 +14,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="css/1-col-portfolio.css" rel="stylesheet">
-
-    <!-- https://blackrockdigital.github.io/startbootstrap-1-col-portfolio/ -->
+    <link href="css/gossip.css" rel="stylesheet">
 
   </head>
 
@@ -25,7 +23,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Christopher Tufaro</a>
+        <a class="navbar-brand" href="#">Spreading Gossip Simulator</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -54,14 +52,15 @@
     <div class="container">
 
       <!-- Page Heading -->
-      <h2 class="my-4">Spreading Gossip Simulator</h2>
+      <h2 class="my-4"></h2>
 
       <!-- Project One -->
       <div class="row">
         <div class="col-md-7">
             <div>
+                <p>Click the <strong>Spread Gossip</strong> button below to simulate an initial number of nodes spreading a message to a random number of receiving nodes. Click the <strong>Reload</strong> button to reshuffle the network and to re-apply the configuration settings below.</p>
                 <canvas id="canvas" width="500" height="500"></canvas>
-                <div>
+                <div class="gos-btn-bar">                    
                     <button type="button" class="btn btn-success" id="btnInfectRun">
                         <span class="glyphicon glyphicon-play"></span> Run
                     </button>
@@ -69,15 +68,24 @@
                     <button type="button" id="btnReload" class="btn btn-primary">Reload</button>
                 </div>
                 <div>
-                    <label>Nodes</label><input type="number" class="input-txt" id="nodecount" step="1" value="100" min="2" max="1000">
-                    <label>Fanout</label><input type="number" class="input-txt" id="fanout" step="1" value="2" min="1" max="1000">
-                    <label>Init</label><input type="number" class="input-txt" id="initinf" step="1" value="1" min="1" max="1000">
-                    <label>Edges</label><span id="steps">0</span>
+                  <p>
+                    <strong>Nodes</strong> represent the total number of nodes on the network. The simulator defaults to 100.
+                    <strong>Fanout</strong> represents the number of nodes a single gossiping node will reach out to.
+                    <strong>Init</strong> represents the initial number of gossiping nodes when the network starts.
+                    <strong>Edges</strong>, a read-only value that represents a single link between two gossiping nodes.
+                  </p>
+                  <label>Nodes</label><input type="number" class="input-txt" id="nodecount" step="1" value="100" min="2" max="1000">
+                  <label>Fanout</label><input type="number" class="input-txt" id="fanout" step="1" value="2" min="1" max="1000">
                 </div>
+                <div>
+                    <label>Init&nbsp;</label><input type="number" class="input-txt" id="initinf" step="1" value="1" min="1" max="1000">
+                    <label>Edges&nbsp;</label><span id="steps">0</span>
+                </div>
+                <p></p>
             </div>
         </div>
         <div class="col-md-5">
-          <h3>Broadcasting Blockchain Data</h3>
+          <h4>Broadcasting Blockchain Data</h4>
           <p>Within the Bitcoin Network.</p>
         </div>
       </div>
@@ -91,7 +99,7 @@
     <!-- Footer -->
     <footer class="py-5 bg-dark">
       <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
+        <p class="m-0 text-center text-white">Christopher Tufaro 2018</p>
       </div>
       <!-- /.container -->
     </footer>
