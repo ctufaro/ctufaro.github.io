@@ -60,8 +60,8 @@
             <div>
                 <h4>Gossip Simulator</h4>
                 <p>
-                  Click the <strong>Spread Gossip</strong> button below to simulate some number of nodes spreading a message to a random number of nodes. 
-                  A blue node is uninformed and has not received the message. When a node turns red, the message has been received and a link has been established between the sender. Click the <strong>Reload</strong> button to clear and reshuffle the network.
+                  Click the <strong>Spread Gossip</strong> button below to simulate some number of nodes spreading gossip to a random number of nodes. 
+                  A blue node is uninformed and has not received the gossip. When a node turns red, the gossip has been received and a link has been established between the sender. Click the <strong>Reload</strong> button to clear and reshuffle the network.
                 </p>
                 <canvas id="canvas" width="500" height="500"></canvas>
                 <div class="gos-btn-bar">                    
@@ -73,7 +73,7 @@
                 </div>
                 <div>
                   <label>Nodes</label><input type="number" class="input-txt" id="nodecount" step="1" value="100" min="2" max="1000">
-                  <label>Fanout</label><input type="number" class="input-txt" id="fanout" step="1" value="2" min="1" max="1000">
+                  <label>Fanout</label><input type="number" class="input-txt" id="fanout" step="1" value="1" min="1" max="1000">
                 </div>
                 <div>
                     <label>Init&nbsp;</label><input type="number" class="input-txt" id="initinf" step="1" value="1" min="1" max="1000">
@@ -90,9 +90,17 @@
         <div class="col-md-5">
           <h4>Broadcasting Blockchain Data</h4>
           <p>
-            Within the Bitcoin Network, when a miner solves a block, they broadcast the solution via a gossip protocol. Gossip communication is similiar to office workers spreading rumors. An initial group of workers share the latest gossip with a random set of uninformed workers. 
-            The uninformed can now spread the gossip themselves. After each gossip iteration, the number of individuals who have heard the rumor roughly doubles (though this doesn't account for gossiping twice to the same person).           
+            Within the Bitcoin Network, when a miner solves a block, they broadcast the solution via a gossip protocol. Gossip communication is similar to office workers spreading rumors. An initial group of workers share the latest gossip with a random set of uninformed workers. 
+            The uninformed can now spread the gossip themselves. After each gossip iteration, the number of individuals who have heard the rumor roughly doubles (though this doesn't account for gossiping twice to the same person). The simulator represents how this gossip is broadcasted
+            within a network. 
           </p>
+
+          <h4>Performance</h4>
+          <p>
+          <ul>
+            <li>With a fanout equaling 1, it takes <i>O(log n)</i> cycles for the gossip to reach all of the nodes in the network.</li>
+          </ul>
+          </p>          
         </div>
       </div>
       <!-- /.row -->
