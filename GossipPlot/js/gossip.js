@@ -40,7 +40,20 @@ var Gossip = function () {
 
         $("#btnReload").click(function () {
             Reload();
-        });        
+        });
+        
+        $('#nodecount').on('input',function(e){
+            Reload();
+        });
+
+        $('#fanout').on('input',function(e){
+            Reload();
+        });
+
+        $('#initinf').on('input',function(e){
+            Reload();
+        });
+
     }
 
     var GetRandNode = function(){
