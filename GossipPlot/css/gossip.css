@@ -59,3 +59,7 @@ strong {
   font-style: italic;
 }
 
+.ftrlink{
+  color: white !important;
+  text-decoration-line: none !important;
+}
