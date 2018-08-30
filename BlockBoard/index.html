@@ -21,7 +21,7 @@
                 //alert("WebSocket is supported by your Browser!");;
 
                 // Let us open a web socket
-                var ws = new WebSocket("ws://mercer.sytes.net:5001/echo");
+                var ws = new WebSocket("wss://mercer.sytes.net:5001/echo");
                 $("#btnSend").css("background-color", "green");
 
                 ws.onopen = function () {
