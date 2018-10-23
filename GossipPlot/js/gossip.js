@@ -100,6 +100,7 @@ var Gossip = function () {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         DrawCanvas();
         $("#btnInfectStart").prop('disabled', false);
+        $("#btnInfectStart").html('Spread Gossip');
         $("#btnInfectRun").prop('disabled', false);
     }
 
@@ -126,6 +127,7 @@ var Gossip = function () {
 
     var AllInfected = function(){
         $("#btnInfectStart").prop('disabled', true);
+        $("#btnInfectStart").html('All Nodes Reached!');
         $("#btnInfectRun").prop('disabled', true);
     }
     
