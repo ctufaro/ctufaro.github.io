@@ -38,6 +38,11 @@
     padding-bottom:0rem !important;
 }
 
+.card-pad{
+    padding-left:5px;
+    padding-right:5px;
+}
+
 @media (max-width: 512px) {
     .ml-auto {
         display: none !important;
