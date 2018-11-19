@@ -9,6 +9,13 @@
     text-align:center;
 }
 
+.wallet-address{
+    display: block;
+    font-size:small;
+    font-family: Tahoma !important;
+    padding-bottom: 8px;
+}
+
 .carousel-item > img {
     position: absolute;
     top: 50%;

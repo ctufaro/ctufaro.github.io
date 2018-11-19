@@ -57,7 +57,7 @@
 				<!-- Three columns of text below the carousel -->
 				<div class="album py-5 bg-light">
 					<div class="container">
-                        <div class="game-heading">My Bets</div>	
+                        <div class="game-heading">My Bets <span class="wallet-address">My Address: {{address}}</span></div>	
                             <table class="table">
                               <thead>
                                 <tr>
@@ -146,14 +146,10 @@
 		<script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
 		<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
 		<script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
-		<!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 		<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
-        <script>
-        $('.btn').click(function(e) {
-            $('.btn').not(this).removeClass('active');    
-            $(this).toggleClass('active');
-            e.preventDefault();
-        });
-        </script>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<script src="js/vendors/web3.min.js"></script>
+    <script src="js/abis/contractDumb.js"></script>  
+		<script src="js/bets.js"></script>
 	</body>
 </html>
