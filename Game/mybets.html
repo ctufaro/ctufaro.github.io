@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/gamestyle.css">
-        <link rel="stylesheet" href="css/cryptofont.min.css">
+		<link rel="stylesheet" href="css/cryptofont.min.css">
 	</head>
 	<body>
 		<header>
@@ -40,7 +40,7 @@
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<a class="dropdown-item" href="#">Blank</a>
 							</div>
-						</li>-->
+							</li>-->
 						<li class="nav-item active">
 							<a class="nav-link" href="mybets.html">My Bets <span class="sr-only">(current)</span></a>
 						</li>
@@ -49,7 +49,7 @@
 			</nav>
 		</header>
 		<main role="main">
-            <div class="bottom25"></div>
+			<div class="bottom25"></div>
 			<!-- Marketing messaging and featurettes
 				================================================== -->
 			<!-- Wrap the rest of the page in another container to center all the content. -->
@@ -57,37 +57,65 @@
 				<!-- Three columns of text below the carousel -->
 				<div class="album py-5 bg-light">
 					<div class="container">
-                        <div class="game-heading">My Bets <span class="wallet-address">My Address: {{address}}</span></div>	
-                            <table class="table">
-                              <thead>
-                                <tr>
-                                  <th scope="col">TX#</th>
-                                  <th scope="col">Amount</th>
-                                  <th scope="col">Game</th>
-                                  <th scope="col">Status</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th scope="row"><a href=''>0X6DAB86C0F7BDF3743C...</a></th>
-                                  <td>0.4409644 Ether</td>
-                                  <td><i class="fas fa-football-ball"></i> PITTSBURGH STEELERS -170</td>
-                                  <td>Pending</td>
-                                </tr>
-                                <tr>
-                                  <th scope="row"><a href=''>0X6DAB812345BDF3743C...</a></th>
-                                  <td>0.4409644 Ether</td>
-                                  <td><i class="fas fa-basketball-ball"></i> BOSTON CELTICS -525</td>
-                                  <td>Pending</td>
-                                </tr>
-                                <tr>
-                                   <th scope="row"><a href=''>0X6DAB856785BDF3743C...</a></th>
-                                  <td>0.4409644 Ether</td>
-                                  <td><i class="fas fa-hockey-puck"></i> NEW YORK ISLANDERS +180</td>
-                                  <td>Pending</td>
-                                </tr>
-                              </tbody>
-                            </table>                      
+						<div class="game-heading">My Bets <span id="wallet-address">My Address: {{address}}</span></div>
+						<div class="row justify-content-center">
+							<div class="col-lg-4">
+								<strong>Team A</strong>
+								<div>Total amount:&nbsp;<span id="spnTotalA"></span></div>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" placeholder="Enter an amount to bet" id="txtBetA">
+									<div class="input-group-append">
+										<span class="input-group-text" id="basic-addon2">ETH</span>
+									</div>
+								</div>
+								<div><button type="button" id="btnBetA" class="btn btn-primary btn-lg">Large button</button></div>
+								<p></p>
+								<div><button type="button" id="btnWinA" class="btn btn-secondary btn-sm">Make this Team Win!</button></div>
+							</div>
+							<div class="col-lg-4">
+								<strong>Team B</strong>
+								<div>Total amount:&nbsp;<span id="spnTotalB"></span></div>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" placeholder="Enter an amount to bet" id="txtBetB">
+									<div class="input-group-append">
+										<span class="input-group-text" id="basic-addon2">ETH</span>
+									</div>
+								</div>
+								<div><button type="button" id="btnBetB" class="btn btn-primary btn-lg">Large button</button></div>
+								<p></p>
+								<div><button type="button" id="btnWinB" class="btn btn-secondary btn-sm">Small button</button></div>
+							</div>
+						</div>
+						<table class="table">
+							<thead>
+								<tr>
+									<th scope="col">TX#</th>
+									<th scope="col">Amount</th>
+									<th scope="col">Game</th>
+									<th scope="col">Status</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<th scope="row"><a href=''>0X6DAB86C0F7BDF3743C...</a></th>
+									<td>0.4409644 Ether</td>
+									<td><i class="fas fa-football-ball"></i> PITTSBURGH STEELERS -170</td>
+									<td>Pending</td>
+								</tr>
+								<tr>
+									<th scope="row"><a href=''>0X6DAB812345BDF3743C...</a></th>
+									<td>0.4409644 Ether</td>
+									<td><i class="fas fa-basketball-ball"></i> BOSTON CELTICS -525</td>
+									<td>Pending</td>
+								</tr>
+								<tr>
+									<th scope="row"><a href=''>0X6DAB856785BDF3743C...</a></th>
+									<td>0.4409644 Ether</td>
+									<td><i class="fas fa-hockey-puck"></i> NEW YORK ISLANDERS +180</td>
+									<td>Pending</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</div>
 				<!-- START THE FEATURETTES -->
@@ -147,9 +175,8 @@
 		<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
 		<script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
 		<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 		<script src="js/vendors/web3.min.js"></script>
-    <script src="js/abis/contractDumb.js"></script>  
+		<script src="js/abis/contractBet.js"></script>  
 		<script src="js/bets.js"></script>
 	</body>
 </html>

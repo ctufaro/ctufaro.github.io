@@ -1,45 +1,73 @@
-var Bets = function(){
-    var bettingInstance;
+var Bets = async function(){
     var contractAddress = '0x345ca3e014aaf5dca488057592ee47305d9b3e10';
 
-    var Init = function(){
+    var Init = async function(){
         if ( typeof web3 != 'undefined') {
             web3 = new Web3(web3.currentProvider);
         } else {
             web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:9545"));
         }
 
-        bettingInstance  = new web3.eth.Contract(abi, contractAddress);
-
-        GetUserAsync().then(res => {
-            new Vue({
-                el: '.wallet-address',
-                data: {
-                  address: res[0]
-                }
-            })            
-        })
-
-        GetAmountAsync().then(res => {
-            console.log(res);
-        });
+        //console.log(web3);
+        var bettingInstance  = new web3.eth.Contract(abi, contractAddress);
+        var accounts = await web3.eth.getAccounts();
+        $('#wallet-address').html(accounts[0]);
+        await GetAmount(bettingInstance,accounts[0],1);
+        await GetAmount(bettingInstance,accounts[0],2);
+        WireEvents();
 
     }();
 
-       
-
-    async function GetAmountAsync(){
-        var user = await GetUserAsync();
-        return await bettingInstance.methods.AmountOne().call({from: user[0]}).then(async (result) => {
-            return await result / 10000;
-        });
+    var GetAmount = async function(bettingInstance, account, team){
+        console.log("called Amount on team " + team);
+        if (team === 1){
+            $('#spnTotalA').html(await bettingInstance.methods.AmountOne().call({from: account}));
+        } else {
+            $('#spnTotalB').html(await bettingInstance.methods.AmountTwo().call({from: account}));
+        }
     }
 
-    async function GetUserAsync(){
-        return await web3.eth.getAccounts(async (error,acc) => { 
-            return await acc; 
-        });
-    };
-   
+    var Bet = async function(team){
+        var bettingInstance  = new web3.eth.Contract(abi, contractAddress);
+        var accounts = await web3.eth.getAccounts();
+        var amount = (team ===1) ? $('#txtBetA').val():$('#txtBetB').val();
+        try {
+            await bettingInstance.methods.bet(team).send({from: accounts[0], gas: 1000000, value: web3.utils.toWei(amount,'ether')});
+            console.log("called Bet on team " + team);
+            await GetAmount(bettingInstance, accounts[0], team);
+         } catch(e) {
+            console.log('error: ' + e);
+         }        
+    }
 
+    var MakeWin = async function(team){
+        var bettingInstance  = new web3.eth.Contract(abi, contractAddress);
+        var accounts = await web3.eth.getAccounts();
+        try {
+            var distribute = await bettingInstance.methods.distributePrizes(team).call({from: accounts[0]});
+            console.log("called MakeWin on team " + team);
+        } catch(e) {
+            console.log('error: ' + e);
+        }
+    }
+
+    var WireEvents = function(){
+        $('#btnBetA').click(async function(){
+            await Bet(1);
+        });
+
+        $('#btnBetB').click(async function(){
+            await Bet(2);
+        });        
+        
+        $('#btnWinA').click(async function(){
+            await MakeWin(1);
+        });
+        
+        $('#btnWinB').click(async function(){
+            await MakeWin(2);
+        });          
+    }
+    
+   
 }();
