@@ -32,7 +32,7 @@ var Spreads = function(){
     
     var PopulateTable = function(tableId,spread){
         var sign = parseFloat(spread) < 0 ? spread : '+'+spread;
-        var html = '<tr class="clicker"><td>'+sign+'</td><td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button></td></tr>'
+        var html = '<tr class="clicker"><td>'+sign+'</td><td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td></tr>'
         var tbl = $('#'+tableId);
         var count = tbl.children().length;
         for(var i = 0; i < count; i++)
@@ -76,6 +76,19 @@ var Spreads = function(){
 
     var Init = function(){
         WireEvents();
+        $.ajax({
+
+            url : 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD',
+            type : 'GET',
+            dataType:'json',
+            success : function(data) {              
+                alert('Data: '+data);
+            },
+            error : function(request,error)
+            {
+                alert("Request: "+JSON.stringify(request));
+            }
+        });
     }();    
    
 }();

@@ -98,7 +98,7 @@
                            <tbody id="tbBroncos">
                               <tr>
                                  <td>-13</td>
-                                 <td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button></td>
+                                 <td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>
                               </tr>
                            </tbody>
                         </table>
@@ -113,7 +113,7 @@
                            <tbody id="tbBengals">
                               <tr>
                                  <td>+14</td>
-                                 <td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button></td>
+                                 <td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>
                               </tr>
                            </tbody>
                         </table>
@@ -183,26 +183,31 @@
                </div>
                <div class="modal-body">
                   <form>
-                      <div class="form-check form-check-inline">
-                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                         <label class="form-check-label" for="inlineRadio1" id="lblHome"></label>
-                      </div>
-                      <div class="form-check form-check-inline bottom10">
-                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                         <label class="form-check-label" for="inlineRadio2" id="lblAway"></label>
-                      </div>
-                      <div class="form-group">
-                         <label for="spread" class="col-form-label">Spread:</label>
-                         <input type="text" class="form-control" id="spread">
-                      </div>
-                      <div class="form-group">
-                         <label for="wager" class="col-form-label">Wager Amount (ETH):</label>
-                         <input type="text" class="form-control" id="wager">
-                      </div>
-                      <div class="form-group" style="text-align:center;">
-                        <div><strong>0x345ca3e014aaf5dca488057592ee47305d9b3e10</strong></div>
-                        <div><img src="images/qr.png"/></div>
-                      </div>                      
+                  <div class="form-check form-check-inline">
+                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                     <label class="form-check-label" for="inlineRadio1" id="lblHome"></label>
+                  </div>
+                  <div class="form-check form-check-inline bottom10">
+                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                     <label class="form-check-label" for="inlineRadio2" id="lblAway"></label>
+                  </div>
+                  <div class="form-group">
+                     <label for="spread" class="col-form-label">Spread:</label>
+                     <input type="text" class="form-control" id="spread">
+                  </div>
+                  <div class="form-group">
+                     <label for="wager" class="col-form-label">Wager Amount (<span id="ethConvert"><span>ETH):</label>
+                     <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                           <span class="input-group-text">$</span>
+                        </div>
+                        <input type="text" class="form-control" id="wager" aria-label="Amount (to the nearest dollar)">
+                     </div>
+                  </div>
+                  <div class="form-group" style="text-align:center;">
+                     <div><strong>0x345ca3e014aaf5dca488057592ee47305d9b3e10</strong></div>
+                     <div><img src="images/qr.png"/></div>
+                  </div>
                   </form
                </div>
                <div class="modal-footer">
