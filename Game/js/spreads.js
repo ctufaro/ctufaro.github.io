@@ -2,13 +2,32 @@ var Spreads = function(){
 
     var WireEvents = function(){
         $('#simulate').click(function(){
-            window.setInterval(function(){
-                var random1 = (Math.floor(Math.random() * 30) + 1) *-1;
-                var random2 = Math.floor(Math.random() * 30) + 1;
-                PopulateTable('tbBroncos',random1);
-                PopulateTable('tbBengals',random2);
-            }, 3000);        
+            var state = $('#simulate').html();
+            
+            if(state === 'Stop'){
+                location.reload();
+            }
+            else{
+                $('#simulate').html('Stop');
+                window.setInterval(function(){
+                    var random1 = (Math.floor(Math.random() * 30) + 1) *-1;
+                    var random2 = Math.floor(Math.random() * 30) + 1;
+                    PopulateTable('tbBroncos',random1);
+                    PopulateTable('tbBengals',random2);
+                }, 3000);        
+            }
         });
+        
+        $('#exampleModalCenter').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var home = button.data('home') // Extract info from data-* attributes
+          var away = button.data('away') // Extract info from data-* attributes
+          var modal = $(this)
+          modal.find('.modal-title').text(home + ' @ ' + away)
+          $('#lblHome').html(home);
+          $('#lblAway').html(away);
+          //modal.find('.modal-body input').val(recipient)
+        })        
     }
     
     var PopulateTable = function(tableId,spread){

@@ -41,10 +41,10 @@
                          <a class="dropdown-item" href="#">Blank</a>
                      </div>
                      </li>-->
-                  <li class="nav-item active">
+                  <li class="nav-item">
                      <a class="nav-link" href="mybets.html">My Bets <span class="sr-only">(current)</span></a>
                   </li>
-                  <li class="nav-item">
+                  <li class="nav-item active">
                      <a class="nav-link" href="spreads.html">Spreads</a>
                   </li>
                </ul>
@@ -60,25 +60,25 @@
             <!-- Three columns of text below the carousel -->
             <div class="album py-5 bg-light">
                <div class="container">
-                  <div class="game-heading top30">Spreads <span id="wallet-address">My Address: {{address}}</span></div>
+                  <div class="game-heading">Spreads <span id="wallet-address">My Address: {{address}}</span></div>
                   <table class="table table-hover table-striped table-light">
                      <tbody>
                         <tr>
-                           <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
+                           <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-home="NEW ORLEANS SAINTS" data-away="DALLAS COWBOYS" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
                            <td>NEW ORLEANS SAINTS</td>
                            <td><span class="badge badge-pill badge-primary badge-fixed">-5.5</span></td>
                            <td>DALLAS COWBOYS</td>
                            <td><span class="badge badge-pill badge-primary badge-fixed">+6.5</span></td>
                         </tr>
                         <tr>
-                           <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
+                           <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-home="INDIANAPOLIS COLTS" data-away="JACKSONVILLE JAGUARS" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
                            <td>INDIANAPOLIS COLTS</td>
                            <td><span class="badge badge-pill badge-primary badge-fixed">-7</span></td>
                            <td>JACKSONVILLE JAGUARS</td>
                            <td><span class="badge badge-pill badge-primary badge-fixed">+8</span></td>
                         </tr>
                         <tr>
-                           <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
+                           <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-home="DENVER BRONCOS" data-away="CINCINNATI BENGALS" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
                            <td>DENVER BRONCOS</td>
                            <td><span class="badge badge-pill badge-primary badge-fixed" id="bdBroncos">-13</span></td>
                            <td>CINCINNATI BENGALS</td>
@@ -99,7 +99,7 @@
                               <tr>
                                  <td>-13</td>
                                  <td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i></button></td>
-                              </tr>                             
+                              </tr>
                            </tbody>
                         </table>
                      </div>
@@ -168,41 +168,50 @@
          <!-- FOOTER -->
          <footer class="container">
             <p class="float-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2017-2018 BEtherSports, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a id="simulate" href="#">Simulate</a></p> 
+            <p>&copy; 2017-2018 BEtherSports, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a id="simulate" href="#">Simulate</a></p>
          </footer>
       </main>
       <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Scan the QR</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Scan the QR</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <img src="images/qr.png"/>
-          </div>        
-          <div class="form-group">
-            <label for="spread" class="col-form-label">Spread:</label>
-            <input type="text" class="form-control" id="spread">
-          </div>
-          <div class="form-group">
-            <label for="wager" class="col-form-label">Wager Amount:</label>
-            <input type="text" class="form-control" id="wager">
-          </div>
-        </form
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Place Bet</button>
-              </div>
+                  </button>
+               </div>
+               <div class="modal-body">
+                  <form>
+                      <div class="form-check form-check-inline">
+                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                         <label class="form-check-label" for="inlineRadio1" id="lblHome"></label>
+                      </div>
+                      <div class="form-check form-check-inline bottom10">
+                         <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                         <label class="form-check-label" for="inlineRadio2" id="lblAway"></label>
+                      </div>
+                      <div class="form-group">
+                         <label for="spread" class="col-form-label">Spread:</label>
+                         <input type="text" class="form-control" id="spread">
+                      </div>
+                      <div class="form-group">
+                         <label for="wager" class="col-form-label">Wager Amount (ETH):</label>
+                         <input type="text" class="form-control" id="wager">
+                      </div>
+                      <div class="form-group" style="text-align:center;">
+                        <div><strong>0x345ca3e014aaf5dca488057592ee47305d9b3e10</strong></div>
+                        <div><img src="images/qr.png"/></div>
+                      </div>                      
+                  </form
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Place Bet</button>
+               </div>
             </div>
-          </div>
-        </div>
+         </div>
+      </div>
       <!-- Bootstrap core JavaScript
          ================================================== -->
       <!-- Placed at the end of the document so the pages load faster -->
