@@ -50,6 +50,19 @@
     padding-right:5px;
 }
 
+.table {
+    border-radius: 5px;
+    width: 75%;
+    margin: 0px auto;
+    float: none;
+}
+
+.badge-fixed {
+    display:inline-block !important; 
+    width:50px !important;
+}
+
+
 @media (max-width: 512px) {
     .ml-auto {
         display: none !important;
