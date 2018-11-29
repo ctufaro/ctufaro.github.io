@@ -73,7 +73,7 @@ var Spreads = function(){
     
     var PopulateTable = function(tableId,spread){
         var sign = parseFloat(spread) < 0 ? spread : '+'+spread;
-        var html = '<tr class="clicker"><td>'+sign+'</td><td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td></tr>'
+        var html = '<tr class="clicker"><td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td><td>'+sign+'</td><td>0</td><td>0</td></tr>'
         var tbl = $('#'+tableId);
         var count = tbl.children().length;
         
@@ -85,13 +85,13 @@ var Spreads = function(){
         for(var i = 0; i < count; i++)
         {
             var tr = tbl.children().eq(i);
-            var trSpread = tr.children().eq(0).html();    
+            var trSpread = tr.children().eq(1).html();    
             
             var trNext = tbl.children().eq(i+1);
-            var trNextSpread = trNext.children().eq(0).html();
+            var trNextSpread = trNext.children().eq(1).html();
             
             var trLast = tbl.children().eq(count-1);
-            var trLastSpread = trLast.children().eq(0).html();          
+            var trLastSpread = trLast.children().eq(1).html();          
             
             //check if the spread param is the smallest
             if(parseFloat(spread) <= parseFloat(trSpread) && i==0){
@@ -111,12 +111,12 @@ var Spreads = function(){
         }
 
         if(tableId==='tbBroncos'){
-            $('#bdBroncos').html(tbl.children().eq(0).children().eq(0).html());
-            $('#boardBroncos').html(tbl.children().eq(0).children().eq(0).html());
+            $('#bdBroncos').html(tbl.children().eq(0).children().eq(1).html());
+            $('#boardBroncos').html(tbl.children().eq(0).children().eq(1).html());
         }
         else{
-            $('#bdBengals').html(tbl.children().eq(0).children().eq(0).html());
-            $('#boardBengals').html(tbl.children().eq(0).children().eq(0).html());
+            $('#bdBengals').html(tbl.children().eq(0).children().eq(1).html());
+            $('#boardBengals').html(tbl.children().eq(0).children().eq(1).html());
         }
 
     }
