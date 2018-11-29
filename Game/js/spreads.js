@@ -11,10 +11,10 @@ var Spreads = function(){
                 $('#simulate').html('Stop');
                 window.setInterval(function(){
                     var random1 = (Math.floor(Math.random() * 30) + 1) *-1;
-                    var random2 = Math.floor(Math.random() * 30) + 1;
-                    PopulateTable('tbBroncos',random1);
-                    PopulateTable('tbBengals',random2);
-                }, 3000);        
+                    var random2 = Math.floor(Math.random() * 30) + 1;                    
+                    PopulateTable('tbBroncos',random1);                    
+                    PopulateTable('tbBengals',random2);                    
+                }, 3000);           
             }
         });
         
@@ -27,7 +27,45 @@ var Spreads = function(){
           $('#lblHome').html(home);
           $('#lblAway').html(away);
           //modal.find('.modal-body input').val(recipient)
-        })        
+        }) 
+
+        $('#wager').focusout(function(){
+            var amount = $(this).val();
+            $.ajax({
+                url : 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD',
+                type : 'GET',
+                dataType:'json',
+                success : function(data) {              
+                    var convertedAmount = parseFloat(amount) / parseFloat(data.USD);
+                    $('#ethConvert').html(convertedAmount + ' ');
+                },
+                error : function(request,error)
+                {
+                    console.log("Request: "+JSON.stringify(request));
+                }
+            });     
+            
+        });
+        
+        $('#ctBroncos').click(function(){
+            if($('.tm1').css('visibility') === 'hidden'){
+                $('.tm1').css('visibility','visible');
+                $('#ctBroncos').attr('class', 'fas fa-caret-down');
+            } else {
+                $('.tm1').css('visibility','hidden');
+                $('#ctBroncos').attr('class', 'fas fa-caret-up');
+            }
+        });
+        
+        $('#ctBengals').click(function(){
+            if($('.tm2').css('visibility') === 'hidden'){
+                $('.tm2').css('visibility','visible');
+                $('#ctBengals').attr('class', 'fas fa-caret-down');                
+            } else {
+                $('.tm2').css('visibility','hidden');
+                $('#ctBengals').attr('class', 'fas fa-caret-up');                   
+            }            
+        });
     }
     
     var PopulateTable = function(tableId,spread){
@@ -35,6 +73,12 @@ var Spreads = function(){
         var html = '<tr class="clicker"><td>'+sign+'</td><td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td></tr>'
         var tbl = $('#'+tableId);
         var count = tbl.children().length;
+        
+        if(count === 0){
+            tbl.append(html);
+            return;
+        }
+        
         for(var i = 0; i < count; i++)
         {
             var tr = tbl.children().eq(i);
@@ -44,9 +88,7 @@ var Spreads = function(){
             var trNextSpread = trNext.children().eq(0).html();
             
             var trLast = tbl.children().eq(count-1);
-            var trLastSpread = trLast.children().eq(0).html();            
-           
-            //check for an empty table
+            var trLastSpread = trLast.children().eq(0).html();          
             
             //check if the spread param is the smallest
             if(parseFloat(spread) <= parseFloat(trSpread) && i==0){
@@ -67,28 +109,18 @@ var Spreads = function(){
 
         if(tableId==='tbBroncos'){
             $('#bdBroncos').html(tbl.children().eq(0).children().eq(0).html());
+            $('#boardBroncos').html(tbl.children().eq(0).children().eq(0).html());
         }
         else{
             $('#bdBengals').html(tbl.children().eq(0).children().eq(0).html());
+            $('#boardBengals').html(tbl.children().eq(0).children().eq(0).html());
         }
 
     }
 
     var Init = function(){
         WireEvents();
-        $.ajax({
-
-            url : 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD',
-            type : 'GET',
-            dataType:'json',
-            success : function(data) {              
-                alert('Data: '+data);
-            },
-            error : function(request,error)
-            {
-                alert("Request: "+JSON.stringify(request));
-            }
-        });
+        
     }();    
    
 }();

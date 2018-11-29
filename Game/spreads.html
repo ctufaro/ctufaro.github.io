@@ -1,233 +1,186 @@
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <link rel="icon" href="">
-      <title>BEtherSports</title>
-      <!-- Bootstrap core CSS -->
-      <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
-      <!-- Custom styles for this template -->
-      <link href="https://getbootstrap.com/docs/4.1/examples/carousel/carousel.css" rel="stylesheet">
-      <!-- Custom styles for this template -->
-      <link href="https://getbootstrap.com/docs/4.1/examples/album/album.css" rel="stylesheet">
-      <!-- Google Logo Font -->
-      <link href="https://fonts.googleapis.com/css?family=Racing+Sans+One" rel="stylesheet">
-      <!-- Font Awesome -->
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
-      <!-- Custom CSS -->
-      <link rel="stylesheet" href="css/gamestyle.css">
-      <link rel="stylesheet" href="css/cryptofont.min.css">
-   </head>
-   <body>
-      <header>
-         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-            <a class="navbar-brand logo"" href="#">BEther<i class="cf cf-eth"></i>Sports</a>
-            <button class="btn btn-success ml-auto" style="visibility:hidden;">Always Show</button>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
-               <ul class="navbar-nav text-right">
-                  <li class="nav-item">
-                     <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                  </li>
-                  <!--<li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                     About Us
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                         <a class="dropdown-item" href="#">Blank</a>
-                     </div>
-                     </li>-->
-                  <li class="nav-item">
-                     <a class="nav-link" href="mybets.html">My Bets <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item active">
-                     <a class="nav-link" href="spreads.html">Spreads</a>
-                  </li>
-               </ul>
-            </div>
-         </nav>
-      </header>
-      <main role="main">
-         <div class="bottom25"></div>
-         <!-- Marketing messaging and featurettes
-            ================================================== -->
-         <!-- Wrap the rest of the page in another container to center all the content. -->
-         <div class="container marketing">
-            <!-- Three columns of text below the carousel -->
-            <div class="album py-5 bg-light">
-               <div class="container">
-                  <div class="game-heading">Spreads <span id="wallet-address">My Address: {{address}}</span></div>
-                  <table class="table table-hover table-striped table-light">
-                     <tbody>
-                        <tr>
-                           <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-home="NEW ORLEANS SAINTS" data-away="DALLAS COWBOYS" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
-                           <td>NEW ORLEANS SAINTS</td>
-                           <td><span class="badge badge-pill badge-primary badge-fixed">-5.5</span></td>
-                           <td>DALLAS COWBOYS</td>
-                           <td><span class="badge badge-pill badge-primary badge-fixed">+6.5</span></td>
-                        </tr>
-                        <tr>
-                           <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-home="INDIANAPOLIS COLTS" data-away="JACKSONVILLE JAGUARS" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
-                           <td>INDIANAPOLIS COLTS</td>
-                           <td><span class="badge badge-pill badge-primary badge-fixed">-7</span></td>
-                           <td>JACKSONVILLE JAGUARS</td>
-                           <td><span class="badge badge-pill badge-primary badge-fixed">+8</span></td>
-                        </tr>
-                        <tr>
-                           <td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-home="DENVER BRONCOS" data-away="CINCINNATI BENGALS" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
-                           <td>DENVER BRONCOS</td>
-                           <td><span class="badge badge-pill badge-primary badge-fixed" id="bdBroncos">-13</span></td>
-                           <td>CINCINNATI BENGALS</td>
-                           <td><span class="badge badge-pill badge-primary badge-fixed" id="bdBengals">+14</span></td>
-                        </tr>
-                     </tbody>
-                  </table>
-                  <!-------------->
-                  <div class="row justify-content-center top10 fixed-div">
-                     <div class="col-xs-6 game-table">
-                        <table class="table table-striped">
-                           <thead>
-                              <tr>
-                                 <th colspan="2">DENVER BRONCOS</th>
-                              </tr>
-                           </thead>
-                           <tbody id="tbBroncos">
-                              <tr>
-                                 <td>-13</td>
-                                 <td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </div>
-                     <div class="col-xs-6 game-table">
-                        <table class="table table-striped">
-                           <thead>
-                              <tr>
-                                 <th colspan="2">CINCINNATI BENGALS</th>
-                              </tr>
-                           </thead>
-                           <tbody id="tbBengals">
-                              <tr>
-                                 <td>+14</td>
-                                 <td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </div>
-                  </div>
-                  <!-------------->
-               </div>
-            </div>
-            <!-- START THE FEATURETTES -->
-            <!--
-               <hr class="featurette-divider">
-               
-               <div class="row featurette">
-                 <div class="col-md-7">
-                   <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
-                   <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                 </div>
-                 <div class="col-md-5">
-                   <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-                 </div>
-               </div>
-               
-               <hr class="featurette-divider">
-               
-               <div class="row featurette">
-                 <div class="col-md-7 order-md-2">
-                   <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-                   <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                 </div>
-                 <div class="col-md-5 order-md-1">
-                   <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-                 </div>
-               </div>
-               
-               <hr class="featurette-divider">
-               
-               <div class="row featurette">
-                 <div class="col-md-7">
-                   <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                   <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-                 </div>
-                 <div class="col-md-5">
-                   <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-                 </div>
-               </div>
-               
-               <hr class="featurette-divider">
-               -->
-            <!-- /END THE FEATURETTES -->
-         </div>
-         <!-- /.container -->
-         <!-- FOOTER -->
-         <footer class="container">
-            <p class="float-right"><a href="#">Back to top</a></p>
-            <p>&copy; 2017-2018 BEtherSports, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a id="simulate" href="#">Simulate</a></p>
-         </footer>
-      </main>
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-         <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLongTitle">Scan the QR</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-               </div>
-               <div class="modal-body">
-                  <form>
-                  <div class="form-check form-check-inline">
-                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                     <label class="form-check-label" for="inlineRadio1" id="lblHome"></label>
-                  </div>
-                  <div class="form-check form-check-inline bottom10">
-                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                     <label class="form-check-label" for="inlineRadio2" id="lblAway"></label>
-                  </div>
-                  <div class="form-group">
-                     <label for="spread" class="col-form-label">Spread:</label>
-                     <input type="text" class="form-control" id="spread">
-                  </div>
-                  <div class="form-group">
-                     <label for="wager" class="col-form-label">Wager Amount (<span id="ethConvert"><span>ETH):</label>
-                     <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                           <span class="input-group-text">$</span>
-                        </div>
-                        <input type="text" class="form-control" id="wager" aria-label="Amount (to the nearest dollar)">
-                     </div>
-                  </div>
-                  <div class="form-group" style="text-align:center;">
-                     <div><strong>0x345ca3e014aaf5dca488057592ee47305d9b3e10</strong></div>
-                     <div><img src="images/qr.png"/></div>
-                  </div>
-                  </form
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Place Bet</button>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- Bootstrap core JavaScript
-         ================================================== -->
-      <!-- Placed at the end of the document so the pages load faster -->
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-      <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
-      <script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
-      <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
-      <!--<script src="js/vendors/web3.min.js"></script>-->
-      <!--<script src="js/abis/contractBet.js"></script>--> 
-      <!--<script src="js/bets.js"></script>-->
-      <script src="js/spreads.js"></script>
-   </body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="">
+		<title>BEtherSports</title>
+		<!-- Bootstrap core CSS -->
+		<link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="https://getbootstrap.com/docs/4.1/examples/carousel/carousel.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="https://getbootstrap.com/docs/4.1/examples/album/album.css" rel="stylesheet">
+		<!-- Google Logo Font -->
+		<link href="https://fonts.googleapis.com/css?family=Racing+Sans+One" rel="stylesheet">
+		<!-- Font Awesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="css/gamestyle.css">
+		<link rel="stylesheet" href="css/cryptofont.min.css">
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+				<a class="navbar-brand logo"" href="#">BEther<i class="cf cf-eth"></i>Sports</a>
+				<button class="btn btn-success ml-auto" style="visibility:hidden;">Always Show</button>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+				<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse flex-grow-0" id="navbarSupportedContent">
+					<ul class="navbar-nav text-right">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+						</li>
+						<!--<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							About Us
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+							    <a class="dropdown-item" href="#">Blank</a>
+							</div>
+							</li>-->
+						<li class="nav-item">
+							<a class="nav-link" href="mybets.html">My Bets <span class="sr-only">(current)</span></a>
+						</li>
+						<li class="nav-item active">
+							<a class="nav-link" href="spreads.html">Spreads</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<main role="main">
+			<div class="bottom25"></div>
+			<!-- Marketing messaging and featurettes
+				================================================== -->
+			<!-- Wrap the rest of the page in another container to center all the content. -->
+			<div class="container marketing">
+				<!-- Three columns of text below the carousel -->
+				<div class="album py-5 bg-light">
+					<div class="container">
+						<div class="game-heading">Spreads <span id="wallet-address">My Address: {{address}}</span></div>
+						<table class="table table-hover table-striped table-light">
+							<tbody>
+								<tr>
+									<td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-home="NEW ORLEANS SAINTS" data-away="DALLAS COWBOYS" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
+									<td>NEW ORLEANS SAINTS</td>
+									<td><span class="badge badge-pill badge-primary badge-fixed">-5.5</span></td>
+									<td>DALLAS COWBOYS</td>
+									<td><span class="badge badge-pill badge-primary badge-fixed">+6.5</span></td>
+								</tr>
+								<tr>
+									<td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-home="INDIANAPOLIS COLTS" data-away="JACKSONVILLE JAGUARS" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
+									<td>INDIANAPOLIS COLTS</td>
+									<td><span class="badge badge-pill badge-primary badge-fixed">-7</span></td>
+									<td>JACKSONVILLE JAGUARS</td>
+									<td><span class="badge badge-pill badge-primary badge-fixed">+8</span></td>
+								</tr>
+								<tr>
+									<td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-home="DENVER BRONCOS" data-away="CINCINNATI BENGALS" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
+									<td>DENVER BRONCOS</td>
+									<td><span class="badge badge-pill badge-primary badge-fixed" id="bdBroncos">-13</span></td>
+									<td>CINCINNATI BENGALS</td>
+									<td><span class="badge badge-pill badge-primary badge-fixed" id="bdBengals">+14</span></td>
+								</tr>
+							</tbody>
+						</table>
+						<!-------------->
+						<div class="row justify-content-center top15">
+							<div class="col-xs-6" style="padding:10px;">
+                                <strong>DENVER BRONCOS <i class="fas fa-caret-down" id="ctBroncos"></i></strong>
+                                <div id="boardBroncos">-13</div>
+							</div>
+							<div class="col-xs-6" style="padding:10px;">
+                                <strong>CINCINNATI BENGALS <i class="fas fa-caret-down" id="ctBengals"></i></strong>
+                                <div id="boardBengals">+14</div>
+							</div>
+						</div>
+						<div class="row justify-content-center fixed-div">
+							<div class="col-xs-6 game-table tm1" style="padding:10px;">
+								<table class="table table-striped">                            
+									<tbody id="tbBroncos">                                
+									</tbody>
+								</table>
+							</div>
+							<div class="col-xs-6 game-table tm2" style="padding:10px;">
+								<table class="table table-striped">                         
+									<tbody id="tbBengals">                              
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-------------->
+					</div>
+				</div>
+				<!-- START THE FEATURETTES -->
+				<!-- /END THE FEATURETTES -->
+			</div>
+			<!-- /.container -->
+			<!-- FOOTER -->
+			<footer class="container">
+				<p class="float-right"><a href="#">Back to top</a></p>
+				<p>&copy; 2017-2018 BEtherSports, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a id="simulate" href="#">Simulate</a></p>
+			</footer>
+		</main>
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+			<div class="modal-dialog modal-dialog-centered" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Scan the QR</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form>
+						<div class="form-check form-check-inline">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+							<label class="form-check-label" for="inlineRadio1" id="lblHome"></label>
+						</div>
+						<div class="form-check form-check-inline bottom10">
+							<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+							<label class="form-check-label" for="inlineRadio2" id="lblAway"></label>
+						</div>
+						<div class="form-group">
+							<label for="spread" class="col-form-label">Spread:</label>
+							<input type="text" class="form-control" id="spread">
+						</div>
+						<div class="form-group">
+							<label for="wager" class="col-form-label">Wager Amount (<span id="ethConvert"></span>ETH)</label>
+							<div class="input-group mb-3">
+								<div class="input-group-prepend">
+									<span class="input-group-text">$</span>
+								</div>
+								<input type="text" class="form-control" id="wager" aria-label="Amount (to the nearest dollar)">
+							</div>
+						</div>
+						<div class="form-group" style="text-align:center;">
+							<div><strong>0x345ca3e014aaf5dca488057592ee47305d9b3e10</strong></div>
+							<div><img src="images/qr.png"/></div>
+						</div>
+						</form
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Place Bet</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Bootstrap core JavaScript
+			================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+		<script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+		<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
+		<script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
+		<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
+		<!--<script src="js/vendors/web3.min.js"></script>-->
+		<!--<script src="js/abis/contractBet.js"></script>--> 
+		<!--<script src="js/bets.js"></script>-->
+		<script src="js/spreads.js"></script>
+	</body>
 </html>
