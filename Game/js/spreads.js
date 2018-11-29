@@ -26,11 +26,14 @@ var Spreads = function(){
           modal.find('.modal-title').text(home + ' @ ' + away)
           $('#lblHome').html(home);
           $('#lblAway').html(away);
-          //modal.find('.modal-body input').val(recipient)
+          $('#wager').val('');
+          $('#spread').val('');
+          $('#ethConvert').html('');
         }) 
 
         $('#wager').focusout(function(){
             var amount = $(this).val();
+            $('#ethConvert').html('<i><small>getting rates</small></i> ');
             $.ajax({
                 url : 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD',
                 type : 'GET',
