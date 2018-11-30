@@ -1,3 +1,14 @@
+.active-orders {
+    padding: 15px 0;
+}
+
+.col-xs-12 {
+    width: 100%;
+}
+
+.table {
+    width: 100%; 
+}
 
 .buy-sell-orders {
     padding: 15px;
@@ -16,48 +27,6 @@
 .buy-sell-orders span.pull-right {
     margin-top: 5px;
     font-size: 12px;
-}
-
-.buy-sell-orders table {
-    width: 37em;
-    overflow-x: visible;
-}
-
-.trade-page .buy-sell-orders table {
-    border-collapse: inherit;
-    margin-bottom: 0;
-    border-radius: 4px;
-}
-
-.buy-sell-orders table thead {
-    display: block;
-}
-
-
-.buy-sell-orders table tbody {
-    display: block;
-    height: 370px;
-    overflow-y: scroll;
-    width: 104%;
-}
-
-.buy-sell-orders table thead th,
-.buy-sell-orders table tbody td {
-    width: 11em;
-}
-
-.trade-page .buy-sell-orders table thead th,
-.buy-sell-orders table tbody td {
-    width: calc(36.7em/ 3);
-}
-
-.trade-page .buy-sell-orders table tbody td {
-    border-bottom: 0;
-}
-
-.buy-sell-orders tr.active {
-    color: #2380c7;
-    background: #f4f4f4;
 }
 
 .buy-sell-orders span.pull-right {
@@ -81,22 +50,4 @@
     width: 50%;
 }
 
-.trade-page .buy-sell-orders table thead th, .buy-sell-orders table tbody td {
-    width: calc(36.7em/ 3);
-}
-.buy-sell-orders table thead th, .buy-sell-orders table tbody td {
-    width: 9em;
-}
-.table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
-    border: 1px solid #ddd;
-}
-.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
-    padding: 8px;
-    line-height: 1.42857143;
-    vertical-align: top;
-    border-top: 1px solid #ddd;
-}
-td, th {
-    padding: 0;
-}
 
