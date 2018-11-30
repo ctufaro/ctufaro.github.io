@@ -51,23 +51,21 @@ var Spreads = function(){
         });
         
         $('#ctBroncos').click(function(){
-            if($('.tm1').css('visibility') === 'hidden'){
-                $('.tm1').css('visibility','visible');
+            if($('.tm1').css('display') === 'none'){                
                 $('#ctBroncos').attr('class', 'fas fa-caret-down');
-            } else {
-                $('.tm1').css('visibility','hidden');
+            } else {                
                 $('#ctBroncos').attr('class', 'fas fa-caret-up');
             }
+            $('.tm1').toggle('slow');
         });
         
         $('#ctBengals').click(function(){
-            if($('.tm2').css('visibility') === 'hidden'){
-                $('.tm2').css('visibility','visible');
+            if($('.tm2').css('display') === 'none'){
                 $('#ctBengals').attr('class', 'fas fa-caret-down');                
             } else {
-                $('.tm2').css('visibility','hidden');
                 $('#ctBengals').attr('class', 'fas fa-caret-up');                   
-            }            
+            }
+            $('.tm2').toggle('slow');            
         });
     }
     
