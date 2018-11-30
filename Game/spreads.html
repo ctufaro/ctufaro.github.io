@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="css/gamestyle.css">
 		<link rel="stylesheet" href="css/cryptofont.min.css">
 		<link rel="stylesheet" href="css/bex.css">
+        <link rel="stylesheet" href="css/cex.css">
 	</head>
 	<body>
 		<header>
@@ -62,6 +63,7 @@
 				<div>
 					<div class="container">
 						<div class="game-heading">Spreads</div>
+                        
 						<div class="active-orders">
 							<div class="row">
 								<div class="col-xs-12">
@@ -78,21 +80,21 @@
 												</thead>-->
 											<tbody>
 												<tr>
-													<td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-home="NEW ORLEANS SAINTS" data-away="DALLAS COWBOYS" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
+													<td><button type="button" class="btn btn-success btn-sm" data-toggle="modalz" data-home="NEW ORLEANS SAINTS" data-away="DALLAS COWBOYS" data-target="#exampleModalCenter"><i class="fas fa-play-circle"></i></button></td>
 													<td>NEW ORLEANS SAINTS <i class="fas fa-football-ball"></i></td>
 													<td><span class="badge badge-pill badge-primary badge-fixed">-5.5</span></td>
 													<td>DALLAS COWBOYS <i class="fas fa-football-ball"></i></td>
 													<td><span class="badge badge-pill badge-primary badge-fixed">+6.5</span></td>
 												</tr>
 												<tr>
-													<td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-home="INDIANAPOLIS COLTS" data-away="JACKSONVILLE JAGUARS" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
+													<td><button type="button" class="btn btn-success btn-sm" data-toggle="modalz" data-home="INDIANAPOLIS COLTS" data-away="JACKSONVILLE JAGUARS" data-target="#exampleModalCenter"><i class="fas fa-play-circle"></i></button></td>
 													<td>INDIANAPOLIS COLTS <i class="fas fa-football-ball"></i></td>
 													<td><span class="badge badge-pill badge-primary badge-fixed">-7</span></td>
 													<td>JACKSONVILLE JAGUARS <i class="fas fa-football-ball"></i></td>
 													<td><span class="badge badge-pill badge-primary badge-fixed">+8</span></td>
 												</tr>
 												<tr>
-													<td><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-home="DENVER BRONCOS" data-away="CINCINNATI BENGALS" data-target="#exampleModalCenter"><i class="fas fa-plus"></i></button></td>
+													<td><button type="button" class="btn btn-success btn-sm" data-toggle="modalz" data-home="DENVER BRONCOS" data-away="CINCINNATI BENGALS" data-target="#exampleModalCenter"><i class="fas fa-play-circle"></i></button></td>
 													<td>DENVER BRONCOS <i class="fas fa-football-ball"></i></td>
 													<td><span class="badge badge-pill badge-primary badge-fixed" id="bdBroncos">-13</span></td>
 													<td>CINCINNATI BENGALS <i class="fas fa-football-ball"></i></td>
@@ -104,6 +106,133 @@
 									<br>
 								</div>
 							</div>
+						</div>
+						<!-------------->
+						<div class="buy-form">
+							<div id="trade-forms">
+								<div id="order-type-form-limit" class="buy-sell-block">
+									<div class="buy-sell">
+										<span class="or">or</span>
+										<div class="row">
+											<div class="col-xs-6">
+												<section id="limit-buy" class="panel">
+													<header class="panel-heading bg-white">
+														<span class="title">
+														DENVER BRONCOS
+														<span class="text-muted m-l-small pull-right">
+														<span id="limit-buy-balance-currency" data-symbol2="">ETH</span>
+														balance:
+														<span id="limit-buy-balance-value" class="symbol2-available" data-balance="">0.00</span>
+														</span>
+													</header>
+													<div class="block1">
+														<form class="form" id="buy">
+															<fieldset>
+																<div id="limit-buy-amount" class="control-group form-group" data-amount-error="">
+																	<label class="control-label" for="amount">Spread</label>
+																	<div class="controls">
+																		<div class="input-group">
+																			<input id="limit-buy-amount-value" type="text" class="form-control input-small" name="amount" data-amount="" autocomplete="off">
+																			<span id="limit-buy-amount-currency" class="input-group-addon" data-symbol1="">ETH</span>
+																		</div>
+																		<span id="limit-buy-amount-message" class="help-block" data-amount-error-message=""></span>
+																	</div>
+																</div>
+																<div id="limit-buy-price" class="control-group form-group" data-price-error="">
+																	<label class="control-label" for="price">Wager</label>
+																	<div class="controls">
+																		<div class="input-group">
+																			<input id="limit-buy-price-value" type="text" class="form-control input-small" name="price" data-price="" autocomplete="off">
+																			<span id="limit-buy-price-currency" class="input-group-addon" data-symbol2="">ETH</span>
+																		</div>
+																		<span id="limit-buy-price-message" class="help-block" data-price-error-message=""></span>
+																	</div>
+																</div>
+																<div class="control-group mini form-group">
+																	<button id="limit-buy-placeOrder" type="submit" class="btn btn-small btn-blue btn-sm" rel="tooltip" disabled="" data-submit="">Place order</button>
+																</div>
+															</fieldset>
+															<div class="total">
+																<b>Total:</b> &nbsp; &nbsp;
+																<span id="limit-buy-total-value" data-total="">0.00</span>
+																<span id="limit-buy-total-currency" data-symbol2="">USD</span>
+																&nbsp; &nbsp; &nbsp;
+																<span class="fee">
+																(Fee:
+																<span id="limit-buy-fee-value" data-maker-fee="">0.00</span> -
+																<span id="limit-buy-fee-value" data-taker-fee="">0.00</span>
+																<span id="limit-buy-fee-currency" data-symbol2="">USD</span>)
+																</span>
+															</div>
+															<div id="limit-buy-alerts" class="row row-alert">
+																<div class="alert" style="display:none" data-alert=""></div>
+															</div>
+														</form>
+													</div>
+												</section>
+											</div>
+											<div class="col-xs-6">
+												<section id="limit-sell" class="panel pull-right">
+													<header class="panel-heading bg-white">
+														<span class="title">
+														CINCINNATI BENGALS
+														</span>
+														<span class="text-muted m-l-small pull-right">
+														<span id="limit-sell-balance-currency" data-symbol1="">ETH</span>
+														balance:
+														<span class="symbol1-available" id="limit-sell-balance-value" data-balance="">0.00000000</span>
+														</span>
+													</header>
+													<div class="block1">
+														<form class="form" id="sell">
+															<fieldset>
+																<div id="limit-sell-amount" class="control-group form-group" data-amount-error="">
+																	<label class="control-label" for="amount">Spread</label>
+																	<div class="controls">
+																		<div class="input-group">
+																			<input id="limit-sell-amount-value" type="text" class="form-control input-small" name="amount" data-amount="" autocomplete="off">
+																			<span id="limit-sell-amount-currency" class="input-group-addon" data-symbol1="">ETH</span>
+																		</div>
+																		<span id="limit-sell-amount-message" class="help-block" data-amount-error-message=""></span>
+																	</div>
+																</div>
+																<div id="limit-sell-price" class="control-group form-group" data-price-error="">
+																	<label class="control-label" for="price">Wager</label>
+																	<div class="controls">
+																		<div class="input-group">
+																			<input id="limit-sell-price-value" type="text" class="form-control input-small" name="price" data-price="" autocomplete="off">
+																			<span id="limit-sell-price-currency" class="input-group-addon" data-symbol2="">ETH</span>
+																		</div>
+																		<span id="limit-sell-price-message" class="help-block" data-price-error-message=""></span>
+																	</div>
+																</div>
+																<div class="control-group mini form-group">
+																	<button id="limit-sell-placeOrder" type="submit" class="btn btn-small btn-blue btn-sm" rel="tooltip" disabled="" data-submit="">Place order</button>
+																</div>
+															</fieldset>
+															<div class="total">
+																<b>Total:</b> &nbsp; &nbsp;
+																<span id="limit-sell-total-value" data-total="">0.00</span>
+																<span id="limit-sell-total-currency" data-symbol2="">USD</span>
+																&nbsp; &nbsp; &nbsp;
+																<span class="fee">
+																(Fee:
+																<span id="limit-sell-fee-value" data-maker-fee="">0.00</span> -
+																<span id="limit-sell-fee-value" data-taker-fee="">0.00</span>
+																<span id="limit-sell-fee-currency" data-symbol2="">USD</span>)
+																</span>
+															</div>
+															<div id="limit-sell-alerts" class="row row-alert">
+																<div class="alert" style="display:none" data-alert=""></div>
+															</div>
+														</form>
+													</div>
+												</section>
+											</div>
+										</div>
+									</div>
+								</div>						
+                            </div>
 						</div>
 						<!-------------->
 						<div class="buy-sell-orders">
@@ -194,7 +323,7 @@
 								</div>
 							</div>
 						</div>
-						<!-------------->
+						<!--
 						<div id="market-depth-google" class="visible redrawed top30" style="text-align:center;">
 							<div>
 								<div dir="ltr">
@@ -282,7 +411,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
+                        -->
+                </div>
 				<!-- START THE FEATURETTES -->
 				<!-- /END THE FEATURETTES -->
 			</div>
