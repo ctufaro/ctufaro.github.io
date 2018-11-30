@@ -29,7 +29,15 @@ var Spreads = function(){
           $('#wager').val('');
           $('#spread').val('');
           $('#ethConvert').html('');
-        }) 
+        })
+
+        $('.btn-play').click(function(){
+          var button = $(this) // Button that triggered the modal
+          var home = button.data('home') // Extract info from data-* attributes
+          var away = button.data('away') // Extract info from data-* attributes
+          $('.t1').html(home);
+          $('.t2').html(away);
+        });
 
         $('#wager').focusout(function(){
             var amount = $(this).val();
