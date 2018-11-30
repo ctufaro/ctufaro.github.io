@@ -1,21 +1,9 @@
-.active-orders {
-    padding: 15px 0;
-}
-
 .col-xs-12 {
     width: 100%;
 }
 
 .table {
     width: 100%; 
-}
-
-.buy-sell-orders {
-    padding: 15px;
-}
-
-.buy-sell-orders header {
-    padding: 10px 5px;
 }
 
 .buy-sell-orders .title {
@@ -33,15 +21,19 @@
     margin-top: 5px;
     font-size: 12px;
 }
+
 .pull-right {
     float: right;
 }
+
 .text-muted {
     color: #919599;
 }
+
 .pull-right {
     float: right!important;
 }
+
 .text-muted {
     color: #999;
 }
