@@ -12,8 +12,8 @@ var Spreads = function(){
                 window.setInterval(function(){
                     var random1 = (Math.floor(Math.random() * 30) + 1) *-1;
                     var random2 = Math.floor(Math.random() * 30) + 1;                    
-                    PopulateTable('tbBroncos',random1);                    
-                    PopulateTable('tbBengals',random2);                    
+                    PopulateTable('tbBroncos',random1,0,0);                    
+                    PopulateTable('tbBengals',random2,0,0);                    
                 }, 3000);           
             }
         });
@@ -35,28 +35,33 @@ var Spreads = function(){
           var button = $(this) // Button that triggered the modal
           var home = button.data('home') // Extract info from data-* attributes
           var away = button.data('away') // Extract info from data-* attributes
-          $('.t1').html(home);
-          $('.t2').html(away);
+          $('.t1').html(home+' ');
+          $('.t2').html(away+' ');
         });
 
-        $('#wager').focusout(function(){
-            var amount = $(this).val();
-            $('#ethConvert').html('<i><small>getting rates</small></i> ');
-            $.ajax({
-                url : 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD',
-                type : 'GET',
-                dataType:'json',
-                success : function(data) {              
-                    var convertedAmount = parseFloat(amount) / parseFloat(data.USD);
-                    $('#ethConvert').html(convertedAmount + ' ');
-                },
-                error : function(request,error)
-                {
-                    console.log("Request: "+JSON.stringify(request));
-                }
-            });     
-            
+        $('#limit-buy-price-value').focusout(function(){
+            var amount = $(this).val();         
+            ConvertETHUSD(amount, 'limit-buy-total-value-eth');
         });
+        
+        $('#limit-sell-price-value').focusout(function(){
+            var amount = $(this).val();         
+            ConvertETHUSD(amount, 'limit-sell-total-value-eth');
+        });
+
+        $('#limit-sell-placeOrder').click(function(){
+            var spread = $('#limit-sell-amount-value').val();
+            var wager = $('#limit-sell-price-value').val();
+            var ethconvert = $('#limit-sell-total-value-eth').html();
+            PopulateTable('tbBengals',spread,wager,ethconvert.trim());            
+        });
+        
+        $('#limit-buy-placeOrder').click(function(){
+            var spread = $('#limit-buy-amount-value').val();
+            var wager = $('#limit-buy-price-value').val();
+            var ethconvert = $('#limit-buy-total-value-eth').html();
+            PopulateTable('tbBroncos',spread,wager,ethconvert.trim());            
+        });        
         
         $('#ctBroncos').click(function(){
             if($('.tm1').css('display') === 'none'){                
@@ -77,9 +82,9 @@ var Spreads = function(){
         });
     }
     
-    var PopulateTable = function(tableId,spread){
+    var PopulateTable = function(tableId,spread,wager,ethconvert){
         var sign = parseFloat(spread) < 0 ? spread : '+'+spread;
-        var html = '<tr class="clicker"><td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td><td>'+sign+'</td><td>0</td><td>0</td></tr>'
+        var html = '<tr class="clicker"><td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td><td>'+sign+'</td><td>'+ethconvert+'</td><td>'+wager+'</td></tr>'
         var tbl = $('#'+tableId);
         var count = tbl.children().length;
         
@@ -127,9 +132,24 @@ var Spreads = function(){
 
     }
 
+    var ConvertETHUSD = function(amount,spanTag){
+        $.ajax({
+            url : 'https://min-api.cryptocompare.com/data/price?fsym=ETH&tsyms=USD',
+            type : 'GET',
+            dataType:'json',
+            success : function(data) {              
+                var convertedAmount = parseFloat(amount) / parseFloat(data.USD);
+                $('#'+spanTag).html(convertedAmount + ' ');
+            },
+            error : function(request,error)
+            {
+                console.log("Request: "+JSON.stringify(request));
+            }
+        });     
+    }
+    
     var Init = function(){
-        WireEvents();
-        
+        WireEvents();        
     }();    
    
 }();

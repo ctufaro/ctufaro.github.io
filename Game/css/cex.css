@@ -26,11 +26,6 @@
     content: " ";
 }
 
-
-.buy-form{
-    
-}
-
 .buy-sell {
     border: 1px solid #e0e4e8;
     margin: -1px 0 15px;
@@ -51,7 +46,7 @@
     font-size: 20px;
 }
 
-.buy-sell form,
+/*.buy-sell form,*/
 .buy-sell .block {
     margin: 0;
 }

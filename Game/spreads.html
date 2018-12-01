@@ -62,7 +62,7 @@
 				<!-- Three columns of text below the carousel -->
 				<div>
 					<div class="container">
-						<div class="game-heading">Spreads</div>
+						<div class="game-heading">NFL Spreads</div>
                         
 						<div class="active-orders">
 							<div class="row">
@@ -119,21 +119,22 @@
 													<header class="panel-heading bg-white">
 														<span class="title t1">
 														DENVER BRONCOS
+														</span>
 														<span class="text-muted m-l-small pull-right">
-														<span id="limit-buy-balance-currency" data-symbol2="">ETH</span>
+														<span id="limit-buy-balance-currency" data-symbol1="">ETH</span>
 														balance:
-														<span id="limit-buy-balance-value" class="symbol2-available" data-balance="">0.00</span>
+														<span class="symbol1-available" id="limit-buy-balance-value" data-balance="">0.00</span>
 														</span>
 													</header>
 													<div class="block1">
-														<form class="form" id="buy">
+														<div class="form" id="buy">
 															<fieldset>
 																<div id="limit-buy-amount" class="control-group form-group" data-amount-error="">
 																	<label class="control-label" for="amount">Spread</label>
 																	<div class="controls">
 																		<div class="input-group">
 																			<input id="limit-buy-amount-value" type="text" class="form-control input-small" name="amount" data-amount="" autocomplete="off">
-																			<span id="limit-buy-amount-currency" class="input-group-addon" data-symbol1="">ETH</span>
+																			<span id="limit-buy-amount-currency" class="input-group-addon" data-symbol1="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 																		</div>
 																		<span id="limit-buy-amount-message" class="help-block" data-amount-error-message=""></span>
 																	</div>
@@ -143,14 +144,14 @@
 																	<div class="controls">
 																		<div class="input-group">
 																			<input id="limit-buy-price-value" type="text" class="form-control input-small" name="price" data-price="" autocomplete="off">
-																			<span id="limit-buy-price-currency" class="input-group-addon" data-symbol2="">ETH</span>
+																			<span id="limit-buy-price-currency" class="input-group-addon" data-symbol2="">USD</span>
 																		</div>
 																		<span id="limit-buy-price-message" class="help-block" data-price-error-message=""></span>
 																	</div>
 																</div>
 																<div class="control-group mini form-group">
-																	<button id="limit-buy-placeOrder" type="submit" class="btn btn-small btn-blue btn-sm" rel="tooltip" disabled="" data-submit="">Place order</button>
-																</div>
+																	<button id="limit-buy-placeOrder" class="btn btn-small btn-blue btn-sm" rel="tooltip">Place order</button>
+																</div>                                                                                          
 															</fieldset>
 															<div class="total">
 																<b>Total:</b> &nbsp; &nbsp;
@@ -164,10 +165,13 @@
 																<span id="limit-buy-fee-currency" data-symbol2="">USD</span>)
 																</span>
 															</div>
-															<div id="limit-buy-alerts" class="row row-alert">
-																<div class="alert" style="display:none" data-alert=""></div>
-															</div>
-														</form>
+															<div class="total">
+																<b>Total:</b> &nbsp; &nbsp;
+																<span id="limit-buy-total-value-eth" data-total="">0.00</span>
+																<span>ETH</span>
+																&nbsp; &nbsp; &nbsp;
+															</div>                                                            
+														</div>
 													</div>
 												</section>
 											</div>
@@ -180,18 +184,18 @@
 														<span class="text-muted m-l-small pull-right">
 														<span id="limit-sell-balance-currency" data-symbol1="">ETH</span>
 														balance:
-														<span class="symbol1-available" id="limit-sell-balance-value" data-balance="">0.00000000</span>
+														<span class="symbol1-available" id="limit-sell-balance-value" data-balance="">0.00</span>
 														</span>
 													</header>
 													<div class="block1">
-														<form class="form" id="sell">
+														<div class="form" id="sell">
 															<fieldset>
 																<div id="limit-sell-amount" class="control-group form-group" data-amount-error="">
 																	<label class="control-label" for="amount">Spread</label>
 																	<div class="controls">
 																		<div class="input-group">
 																			<input id="limit-sell-amount-value" type="text" class="form-control input-small" name="amount" data-amount="" autocomplete="off">
-																			<span id="limit-sell-amount-currency" class="input-group-addon" data-symbol1="">ETH</span>
+																			<span id="limit-sell-amount-currency" class="input-group-addon" data-symbol1="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 																		</div>
 																		<span id="limit-sell-amount-message" class="help-block" data-amount-error-message=""></span>
 																	</div>
@@ -201,13 +205,13 @@
 																	<div class="controls">
 																		<div class="input-group">
 																			<input id="limit-sell-price-value" type="text" class="form-control input-small" name="price" data-price="" autocomplete="off">
-																			<span id="limit-sell-price-currency" class="input-group-addon" data-symbol2="">ETH</span>
+																			<span id="limit-sell-price-currency" class="input-group-addon" data-symbol2="">USD</span>
 																		</div>
 																		<span id="limit-sell-price-message" class="help-block" data-price-error-message=""></span>
 																	</div>
 																</div>
 																<div class="control-group mini form-group">
-																	<button id="limit-sell-placeOrder" type="submit" class="btn btn-small btn-blue btn-sm" rel="tooltip" disabled="" data-submit="">Place order</button>
+																	<button id="limit-sell-placeOrder" class="btn btn-small btn-blue btn-sm" rel="tooltip">Place order</button>
 																</div>
 															</fieldset>
 															<div class="total">
@@ -222,10 +226,13 @@
 																<span id="limit-sell-fee-currency" data-symbol2="">USD</span>)
 																</span>
 															</div>
-															<div id="limit-sell-alerts" class="row row-alert">
-																<div class="alert" style="display:none" data-alert=""></div>
-															</div>
-														</form>
+															<div class="total">
+																<b>Total:</b> &nbsp; &nbsp;
+																<span id="limit-sell-total-value-eth" data-total="">0.00</span>
+																<span>ETH</span>
+																&nbsp; &nbsp; &nbsp;
+															</div>                                                               
+														</div>
 													</div>
 												</section>
 											</div>
@@ -240,9 +247,9 @@
 								<div class="col-xs-6">
 									<div style="width: 96%">
 										<header>
-											<span class="title t1">DENVER BRONCOS <i class="fas fa-caret-down" id="ctBroncos"></i></span>
+											<span class="title t1">DENVER BRONCOS </span><i class="fas fa-caret-down" id="ctBroncos"></i>
 											<span class="text-muted pull-right">
-											<i class="icn-time"></i> Total <span class="symbol1">USD</span> available: <span id="md-sell-total">2297.53076684</span>
+											<i class="icn-time"></i> Total <span class="symbol1">USD</span> available: <span id="md-sell-total">0.00</span>
 											</span>
 										</header>
 										<div style="overflow-y: hidden;height: 250px;width: 106%;" class="tm1">
@@ -262,18 +269,6 @@
 														<td>0.28212906</td>
 														<td>3074.06</td>
 													</tr>
-													<tr>
-														<td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>
-														<td>-9</td>
-														<td>0.20000000</td>
-														<td>2179.20</td>
-													</tr>
-													<tr>
-														<td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>
-														<td>-4</td>
-														<td>0.06000000</td>
-														<td>653.82</td>
-													</tr>
 												</tbody>
 											</table>
 										</div>
@@ -282,9 +277,9 @@
 								<div class="col-xs-6">
 									<div style="width: 95%" class="pull-right">
 										<header>
-											<span class="title t2">CINCINNATI BENGALS <i class="fas fa-caret-down" id="ctBengals"></i></span>
+											<span class="title t2">CINCINNATI BENGALS </span><i class="fas fa-caret-down" id="ctBengals"></i>
 											<span class="text-muted pull-right">
-											<i class="icn-time"></i> Total <span class="symbol2">USD</span> available: <span id="md-buy-total">8918685.11</span>
+											<i class="icn-time"></i> Total <span class="symbol2">USD</span> available: <span id="md-buy-total">0.00</span>
 											</span>
 										</header>
 										<div style="overflow-y: hidden;height: 250px;width: 106%;" class="tm2">
@@ -304,19 +299,7 @@
 														<td>0.28212906</td>
 														<td>3074.06</td>
 													</tr>
-													<tr>
-														<td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>
-														<td>+15</td>
-														<td>0.20000000</td>
-														<td>2179.20</td>
-													</tr>
-													<tr>
-														<td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>
-														<td>+16.5</td>
-														<td>0.06000000</td>
-														<td>653.82</td>
-													</tr>
-												</tbody>
+													</tbody>
 											</table>
 										</div>
 									</div>
