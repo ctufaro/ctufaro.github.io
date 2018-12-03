@@ -53,13 +53,16 @@ var Spreads = function(){
             var spread = $('#limit-sell-amount-value').val();
             var wager = $('#limit-sell-price-value').val();
             var ethconvert = $('#limit-sell-total-value-eth').html();
-            PopulateTable('tbBengals',spread,wager,ethconvert.trim());            
+            PopulateTable('tbBengals',spread,wager,ethconvert.trim());  
+
+            
         });
         
-        $('#limit-buy-placeOrder').click(function(){
+        $('#limit-buy-placeOrder').click(async function(){
             var spread = $('#limit-buy-amount-value').val();
             var wager = $('#limit-buy-price-value').val();
             var ethconvert = $('#limit-buy-total-value-eth').html();
+            await Contracts.Deposit(ethconvert.trim());
             PopulateTable('tbBroncos',spread,wager,ethconvert.trim());            
         });        
         

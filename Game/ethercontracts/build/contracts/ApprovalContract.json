@@ -288,7 +288,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 493,
+                            "referencedDeclaration": 511,
                             "src": "321:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -347,10 +347,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        496,
-                        497
+                        514,
+                        515
                       ],
-                      "referencedDeclaration": 496,
+                      "referencedDeclaration": 514,
                       "src": "313:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -406,7 +406,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 493,
+                        "referencedDeclaration": 511,
                         "src": "351:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -666,7 +666,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 493,
+                            "referencedDeclaration": 511,
                             "src": "533:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -720,10 +720,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        496,
-                        497
+                        514,
+                        515
                       ],
-                      "referencedDeclaration": 496,
+                      "referencedDeclaration": 514,
                       "src": "525:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -760,7 +760,7 @@
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 506,
+                          "referencedDeclaration": 524,
                           "src": "581:4:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_ApprovalContract_$62",
@@ -1062,7 +1062,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 493,
+                            "referencedDeclaration": 511,
                             "src": "321:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1121,10 +1121,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        496,
-                        497
+                        514,
+                        515
                       ],
-                      "referencedDeclaration": 496,
+                      "referencedDeclaration": 514,
                       "src": "313:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1180,7 +1180,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 493,
+                        "referencedDeclaration": 511,
                         "src": "351:3:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -1440,7 +1440,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 493,
+                            "referencedDeclaration": 511,
                             "src": "533:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1494,10 +1494,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        496,
-                        497
+                        514,
+                        515
                       ],
-                      "referencedDeclaration": 496,
+                      "referencedDeclaration": 514,
                       "src": "525:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
@@ -1534,7 +1534,7 @@
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 506,
+                          "referencedDeclaration": 524,
                           "src": "581:4:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_contract$_ApprovalContract_$62",
@@ -1650,5 +1650,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.1",
-  "updatedAt": "2018-11-21T19:58:34.567Z"
+  "updatedAt": "2018-12-03T18:20:16.052Z"
 }
