@@ -18,6 +18,10 @@ var Spreads = function(){
             }
         });
         
+        $('#withdraw').click(function(){
+            Contracts.Withdraw();
+        });        
+        
         $('#exampleModalCenter').on('show.bs.modal', function (event) {
           var button = $(event.relatedTarget) // Button that triggered the modal
           var home = button.data('home') // Extract info from data-* attributes
@@ -152,7 +156,9 @@ var Spreads = function(){
     }
     
     var Init = function(){
-        WireEvents();        
+        WireEvents();
+        Contracts.GetContractAddr();
+        Contracts.GetMyAddress();
     }();    
    
 }();
