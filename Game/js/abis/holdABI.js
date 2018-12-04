@@ -7,7 +7,7 @@ var holdABI = [
         "type": "address"
       }
     ],
-    "name": "balanceOf",
+    "name": "balances",
     "outputs": [
       {
         "name": "",
@@ -41,12 +41,40 @@ var holdABI = [
     "constant": false,
     "inputs": [
       {
-        "name": "amount",
+        "name": "value",
         "type": "uint256"
       }
     ],
     "name": "withdraw",
-    "outputs": [],
+    "outputs": [
+      {
+        "name": "success",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "name": "to",
+        "type": "address"
+      },
+      {
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "transfer",
+    "outputs": [
+      {
+        "name": "success",
+        "type": "bool"
+      }
+    ],
     "payable": false,
     "stateMutability": "nonpayable",
     "type": "function"

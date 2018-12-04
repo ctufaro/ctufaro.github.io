@@ -1,5 +1,5 @@
 var Contracts = function(){
-    var holdingContractAddress = '0xae4a35f930362e5507c6ff845acd6a74246e058c';    
+    var holdingContractAddress = '0x345ca3e014aaf5dca488057592ee47305d9b3e10';    
     
     var Init = async function(){
 
@@ -17,7 +17,7 @@ var Contracts = function(){
         console.log("called Deposit"); 
     };
     
-    var Withdraw = async function(){
+    var Withdraw = async function(amount){
         if ( typeof web3 != 'undefined') {
             web3 = new Web3(web3.currentProvider);
         } else {
@@ -25,7 +25,7 @@ var Contracts = function(){
         }
         var accounts = await web3.eth.getAccounts();
         var holdingInstance = new web3.eth.Contract(holdABI, holdingContractAddress);
-        await holdingInstance.methods.withdraw({from: accounts[0], value: web3.utils.toWei('1','ether')});
+        await holdingInstance.methods.withdraw(web3.utils.toWei(amount,'ether')).send({from: accounts[0]});
         console.log("called Withdraw"); 
     };    
     

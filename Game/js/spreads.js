@@ -16,10 +16,16 @@ var Spreads = function(){
                     PopulateTable('tbBengals',random2,0,0);                    
                 }, 3000);           
             }
-        });
-        
-        $('#withdraw').click(function(){
-            Contracts.Withdraw();
+        });        
+
+
+        $('body').on('click', '.refund', function () {
+            var tr = $(this).closest('tr');
+            var amount = tr.children().eq(2).html();
+            Contracts.Withdraw(amount);
+            tr.fadeOut('slow', function(){
+                tr.remove();
+            });
         });        
         
         $('#exampleModalCenter').on('show.bs.modal', function (event) {
@@ -57,9 +63,7 @@ var Spreads = function(){
             var spread = $('#limit-sell-amount-value').val();
             var wager = $('#limit-sell-price-value').val();
             var ethconvert = $('#limit-sell-total-value-eth').html();
-            PopulateTable('tbBengals',spread,wager,ethconvert.trim());  
-
-            
+            PopulateTable('tbBengals',spread,wager,ethconvert.trim());            
         });
         
         $('#limit-buy-placeOrder').click(async function(){
@@ -91,7 +95,13 @@ var Spreads = function(){
     
     var PopulateTable = function(tableId,spread,wager,ethconvert){
         var sign = parseFloat(spread) < 0 ? spread : '+'+spread;
-        var html = '<tr class="clicker"><td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td><td>'+sign+'</td><td>'+ethconvert+'</td><td>'+wager+'</td></tr>'
+        var html = '<tr class="clicker">'+
+                        '<td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>'+
+                        '<td>'+sign+'</td>'+
+                        '<td>'+ethconvert+'</td>'+
+                        '<td>'+wager+'</td>'+
+                        '<td><button type="button" class="btn btn-danger btn-sm refund"><i class="fas fa-times"></i></button></td>'
+                   '</tr>';
         var tbl = $('#'+tableId);
         var count = tbl.children().length;
         
