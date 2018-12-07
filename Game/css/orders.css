@@ -3,7 +3,12 @@
 }
 
 .table {
-    width: 100%;     
+    width: 100%;    
+    font-size:14px;
+}
+
+.table td, .table th{
+    padding: .5rem;
 }
 
 .buy-sell-orders .title {

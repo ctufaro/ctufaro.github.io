@@ -42,11 +42,11 @@ var Spreads = function(){
         })
 
         $('.btn-play').click(function(){
-          var button = $(this) // Button that triggered the modal
+          /*var button = $(this) // Button that triggered the modal
           var home = button.data('home') // Extract info from data-* attributes
           var away = button.data('away') // Extract info from data-* attributes
           $('.t1').html(home+' ');
-          $('.t2').html(away+' ');
+          $('.t2').html(away+' ');*/
         });
 
         $('#limit-buy-price-value').focusout(function(){
