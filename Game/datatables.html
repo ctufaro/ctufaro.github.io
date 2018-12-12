@@ -1,0 +1,81 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="">
+		<title>BetrTrader</title>
+		<!-- Bootstrap core CSS -->
+		<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div style="width:40%;">
+			<table id="myTable">
+				<thead>
+					<tr>
+						<!--<th></th>-->
+						<th>Spread</th>
+						<th>Wager (ETH)</th>
+						<th>Total (USD)</th>
+						<!--<th></th>-->
+					</tr>
+				</thead>
+				<tbody id="tbBengals">
+					<tr>
+						<!--<td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>-->
+						<td>+14</td>
+						<td>0.5784</td>
+						<td>50</td>
+						<!--<td><button type="button" class="btn btn-danger btn-sm refund"><i class="fas fa-times"></i></button></td>  -->                                                      
+					</tr>
+					<tr>
+						<td>+14.5</td>
+						<td>0.5784</td>
+						<td>50</td>
+					</tr>
+					<tr>
+						<td>+15</td>
+						<td>0.5784</td>
+						<td>50</td>
+					</tr>
+					<tr>
+						<td>+15.5</td>
+						<td>0.5784</td>
+						<td>50</td>
+					</tr>
+					<tr>
+						<td>+16</td>
+						<td>0.5784</td>
+						<td>50</td>
+					</tr>
+				</tbody>
+            </table>
+            <button id="addRow">Add row</button>
+            <input type="text" id="myText1"></input>
+            <br><br>
+            <button id="removeRow">Remove row</button>
+		</div>
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+		<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
+		<script>
+            var t;
+            
+            $(document).ready( function () {
+                t = $('#myTable').DataTable();
+            } );
+            
+            $('#addRow').click(function(){
+                t.row.add( [ $('#myText1').val(), '0.5784','50'] ).node().id = $('#myText1').val();
+                t.draw( false );
+            });
+
+            $('#removeRow').click(function(){
+                var id=$('#myText1').val();
+                t.row("#"+id).remove().draw();
+            });
+
+		</script>
+	</body>
+</html>

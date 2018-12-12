@@ -16,8 +16,16 @@ var Spreads = function(){
                     PopulateTable('tbBengals',random2,0,0);                    
                 }, 3000);           
             }
-        });        
+        });
 
+        $('#toast').click(function(e){
+            e.preventDefault();
+            toastr.options = {"positionClass": "toast-bottom-right","closeButton": true};           
+            toastr.error("Your trade has been cancelled");
+            toastr.info("Your trade has been partially filled");
+            toastr.success("Your trade has been filled");
+            //toastr.error("Your trade has been filled!");
+        });
 
         $('body').on('click', '.refund', function () {
             var tr = $(this).closest('tr');
