@@ -18,6 +18,8 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 		<!-- Toastr-->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+		<!-- Datatables-->
+		
 		<!-- Custom CSS -->
 		<link rel="stylesheet" href="css/gamestyle.css">
 		<link rel="stylesheet" href="css/cryptofont.min.css">
@@ -135,7 +137,7 @@
 																	<label class="control-label" for="amount">Spread</label>
 																	<div class="controls">
 																		<div class="input-group">
-																			<input id="limit-buy-amount-value" type="text" class="form-control input-small" name="amount" data-amount="" autocomplete="off">
+																			<input id="book1-spread" type="text" class="form-control input-small" name="amount" data-amount="" autocomplete="off">
 																			<span id="limit-buy-amount-currency" class="input-group-addon" data-symbol1="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 																		</div>
 																		<span id="limit-buy-amount-message" class="help-block" data-amount-error-message=""></span>
@@ -145,14 +147,15 @@
 																	<label class="control-label" for="price">Wager</label>
 																	<div class="controls">
 																		<div class="input-group">
-																			<input id="limit-buy-price-value" type="text" class="form-control input-small" name="price" data-price="" autocomplete="off">
+																			<input id="book1-amount" type="text" class="form-control input-small" name="price" data-price="" autocomplete="off">
 																			<span id="limit-buy-price-currency" class="input-group-addon" data-symbol2="">USD</span>
+																			<input id="book1-date" type="text" style="margin-top:5px;" placeholder="enter date (testing)">
 																		</div>
 																		<span id="limit-buy-price-message" class="help-block" data-price-error-message=""></span>
 																	</div>
 																</div>
 																<div class="control-group mini form-group">
-																	<button id="limit-buy-placeOrder" class="btn btn-small btn-blue btn-sm" rel="tooltip">Place order</button>
+																	<button id="place-bet-book1" class="btn btn-small btn-blue btn-sm" rel="tooltip">Place order</button>
 																</div>                                                                                          
 															</fieldset>
 															<div class="total">
@@ -196,7 +199,7 @@
 																	<label class="control-label" for="amount">Spread</label>
 																	<div class="controls">
 																		<div class="input-group">
-																			<input id="limit-sell-amount-value" type="text" class="form-control input-small" name="amount" data-amount="" autocomplete="off">
+																			<input id="book2-spread" type="text" class="form-control input-small" name="amount" data-amount="" autocomplete="off">
 																			<span id="limit-sell-amount-currency" class="input-group-addon" data-symbol1="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
 																		</div>
 																		<span id="limit-sell-amount-message" class="help-block" data-amount-error-message=""></span>
@@ -206,14 +209,15 @@
 																	<label class="control-label" for="price">Wager</label>
 																	<div class="controls">
 																		<div class="input-group">
-																			<input id="limit-sell-price-value" type="text" class="form-control input-small" name="price" data-price="" autocomplete="off">
+																			<input id="book2-amount" type="text" class="form-control input-small" name="price" data-price="" autocomplete="off">
 																			<span id="limit-sell-price-currency" class="input-group-addon" data-symbol2="">USD</span>
+																			<input id="book2-date" type="text" style="margin-top:5px;" placeholder="enter date (testing)">
 																		</div>
-																		<span id="limit-sell-price-message" class="help-block" data-price-error-message=""></span>
+																		<span id="limit-sell-price-message" class="help-block" data-price-error-message=""></span>																		
 																	</div>
 																</div>
 																<div class="control-group mini form-group">
-																	<button id="limit-sell-placeOrder" class="btn btn-small btn-blue btn-sm" rel="tooltip">Place order</button>
+																	<button id="place-bet-book2" class="btn btn-small btn-blue btn-sm" rel="tooltip">Place order</button>
 																</div>
 															</fieldset>
 															<div class="total">
@@ -255,45 +259,16 @@
 											</span>
 										</header>
 										<div style="overflow-y: auto;height: 250px;width: 106%;" class="tm1">
-											<table class="table table-bordered">
+											<table class="table table-bordered" id="book1">
 												<thead>
 													<tr>
-														<!--<th></th>-->
 														<th>Spread</th>
-														<th>Wager (ETH)</th>
-														<th>Total (USD)</th>
-                                                        <!--<th></th>-->
+														<th>Wager</th>
+														<th>Time</th>
+														<th>Status</th>
 													</tr>
 												</thead>
-												<tbody id="tbBroncos">
-													<tr>
-														<!--<td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>-->
-														<td>-13</td>
-														<td>1.5</td>
-														<td>127.76</td>
-                                                        <!--<td><button type="button" class="btn btn-danger btn-sm refund"><i class="fas fa-times"></i></button></td>-->
-													</tr>
-													<tr>
-														<td>-12.5</td>
-														<td>1.5</td>
-														<td>127.76</td>
-													</tr>
-													<tr>
-														<td>-12</td>
-														<td>1.5</td>
-														<td>127.76</td>
-													</tr> 
-													<tr>
-														<td>-11.5</td>
-														<td>1.5</td>
-														<td>127.76</td>
-													</tr> 
-													<tr>
-														<td>-11</td>
-														<td>1.5</td>
-														<td>127.76</td>
-													</tr> 
-                                                   
+												<tbody>
 												</tbody>
 											</table>
 										</div>
@@ -308,44 +283,18 @@
 											</span>
 										</header>
 										<div style="overflow-y: auto;height: 250px;width: 106%;" class="tm2">
-											<table class="table table-bordered">
+											<table class="table table-bordered" id="book2">
 												<thead>
 													<tr>
-														<!--<th></th>-->
-														<th>Spread</th>
-														<th>Wager (ETH)</th>
-														<th>Total (USD)</th>
-                                                        <!--<th></th>-->
-													</tr>
+														<tr>
+															<th>Spread</th>
+															<th>Wager</th>
+															<th>Time</th>
+															<th>Status</th>
+														</tr>
 												</thead>
-												<tbody id="tbBengals">
-													<tr>
-														<!--<td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>-->
-														<td>+14</td>
-														<td>0.5784</td>
-														<td>50</td>
-                                                        <!--<td><button type="button" class="btn btn-danger btn-sm refund"><i class="fas fa-times"></i></button></td>  -->                                                      
-													</tr>
-													<tr>
-														<td>+14.5</td>
-														<td>0.5784</td>
-														<td>50</td>                                                     
-													</tr>
-													<tr>
-														<td>+15</td>
-														<td>0.5784</td>
-														<td>50</td>                                                     
-													</tr> 
-													<tr>
-														<td>+15.5</td>
-														<td>0.5784</td>
-														<td>50</td>                                                     
-													</tr> 
-													<tr>
-														<td>+16</td>
-														<td>0.5784</td>
-														<td>50</td>                                                     
-													</tr>                                                     
+												<tbody>
+													                                                     
 													</tbody>
 											</table>
 										</div>
@@ -473,8 +422,7 @@
 			<!-- FOOTER -->
 			<footer class="container">
 				<p class="float-right"><a href="#">Back to top</a></p>
-				<p>&copy; 2017-2018 BetrTrader, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a id="simulate" href="#">Simulate</a>
- 					&middot; <a id="toast" href="#">Toast</a>
+				<p>&copy; 2017-2018 BetrTrader, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a> &middot; <a id="restart" href="#">Restart</a>
 				</p>
 			</footer>
 		</main>
@@ -533,10 +481,12 @@
 		<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
 		<script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
 		<script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/holder.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
 		<script src="js/vendors/web3.min.js"></script>
 		<script src="js/abis/holdABI.js"></script>
-        <script src="js/contracts.js"></script>        
-		<script src="js/spreads.js"></script>
+        <!--<script src="js/contracts.js"></script>        
+		<script src="js/spreads.js"></script>-->
+		<script src="js/exchange.js"></script>
 
 	</body>
 </html>

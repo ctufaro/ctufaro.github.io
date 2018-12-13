@@ -1,4 +1,4 @@
-<html lang="en">
+﻿<html lang="en">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,73 +8,85 @@
 		<title>BetrTrader</title>
 		<!-- Bootstrap core CSS -->
 		<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+        <style>
+            .pd{
+                margin:5px 5px 5px 0px;
+            }
+            .lb{
+                font-family:'Courier New';
+                font-size:16px;
+            }
+        </style>
 	</head>
 	<body>
-		<div style="width:40%;">
-			<table id="myTable">
-				<thead>
-					<tr>
-						<!--<th></th>-->
-						<th>Spread</th>
-						<th>Wager (ETH)</th>
-						<th>Total (USD)</th>
-						<!--<th></th>-->
-					</tr>
-				</thead>
-				<tbody id="tbBengals">
-					<tr>
-						<!--<td><button type="button" class="btn btn-success btn-sm"><i class="fas fa-dollar-sign"></i></button></td>-->
-						<td>+14</td>
-						<td>0.5784</td>
-						<td>50</td>
-						<!--<td><button type="button" class="btn btn-danger btn-sm refund"><i class="fas fa-times"></i></button></td>  -->                                                      
-					</tr>
-					<tr>
-						<td>+14.5</td>
-						<td>0.5784</td>
-						<td>50</td>
-					</tr>
-					<tr>
-						<td>+15</td>
-						<td>0.5784</td>
-						<td>50</td>
-					</tr>
-					<tr>
-						<td>+15.5</td>
-						<td>0.5784</td>
-						<td>50</td>
-					</tr>
-					<tr>
-						<td>+16</td>
-						<td>0.5784</td>
-						<td>50</td>
-					</tr>
-				</tbody>
+        <div style="width:40%;">
+            <table id="myTable">
+                <thead>
+                    <tr>
+                        <th>Spread</th>
+                        <th>Wager</th>
+                        <th>Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
             </table>
-            <button id="addRow">Add row</button>
-            <input type="text" id="myText1"></input>
-            <br><br>
-            <button id="removeRow">Remove row</button>
-		</div>
+            <label class="lb">Spread: </label><input type="text" id="spread" class="pd"/><br />
+            <label class="lb">Amount: </label><input type="text" id="amount" class="pd"/><br />
+            <button id="placeBet" class="pd">Place Bet</button>
+
+        </div>
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
 		<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
 		<script>
-            var t;
-            
-            $(document).ready( function () {
-                t = $('#myTable').DataTable();
-            } );
-            
-            $('#addRow').click(function(){
-                t.row.add( [ $('#myText1').val(), '0.5784','50'] ).node().id = $('#myText1').val();
-                t.draw( false );
-            });
+            function Init() {
+                var index = -1;
+                var webSocketAddr = "ws://localhost:5000/trades"; //c-ws://mercer.sytes.net:5001/echo m-192.168.78.135:5001/echo
+                var t;
 
-            $('#removeRow').click(function(){
-                var id=$('#myText1').val();
-                t.row("#"+id).remove().draw();
-            });
+                if ("WebSocket" in window) {
+                    //alert("WebSocket is supported by your Browser!");
+
+                    // Let us open a web socket
+                    var ws = new WebSocket(webSocketAddr);
+
+                    ws.onopen = function () {
+                        console.log("Websocket opened");
+
+                        $(document).ready(function () {
+                            t = $('#myTable').DataTable();
+                        });
+                        console.log("Init Tables");
+                        
+                    };
+
+                    ws.onmessage = function (evt) {
+                        var received_msg = evt.data;
+                        var order = JSON.parse(evt.data);
+                        console.log(order);
+                        t.row.add([order.Spread, order.WagerAmount, order.OrderPlacedOn, order.StatusTxt]).node().id = order.OrderId;
+                        t.draw(false);
+                    };
+
+                    ws.onclose = function () {
+                        console.log("Websocket closed");
+                    };
+
+                    $('#placeBet').click(function () {
+                        var newOrder = { Spread: $('#spread').val(), Amount: $('#amount').val() };
+                        ws.send(JSON.stringify(newOrder));
+                    });
+
+                }
+                else {
+                    // The browser doesn't support WebSocket
+                    alert("WebSocket NOT supported by your Browser!");
+                }
+            }
+
+            Init();
 
 		</script>
 	</body>
