@@ -1,7 +1,8 @@
 var Exchange = function(){
     var book1tb;
     var book2tb;
-    var webSocketAddr = "ws://localhost:5000/trades";
+    //var webSocketAddr = "ws://localhost:5000/trades";
+    var webSocketAddr = "ws://mercer.sytes.net:5001/trades";
     var orderDict = {};
     var ws;
 
