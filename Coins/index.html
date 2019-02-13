@@ -1,1 +1,32 @@
-
+<html>
+<head>
+    <title>Coins</title>
+    <meta http-equiv="refresh" content="300" />
+</head>
+<body>
+    <div id="main">
+        <div class="coinmarketcap-currency-widget" data-currency="electroneum" data-base="USD" data-secondary="USD" data-ticker="true" data-rank="true" data-marketcap="false" data-volume="true" data-stats="USD" data-statsticker="false"></div>
+        <div class="coinmarketcap-currency-widget" data-currency="tomochain" data-base="USD" data-secondary="USD" data-ticker="true" data-rank="true" data-marketcap="false" data-volume="true" data-stats="USD" data-statsticker="false"></div>
+        <div class="coinmarketcap-currency-widget" data-currency="bitcoin" data-base="USD" data-secondary="USD" data-ticker="true" data-rank="true" data-marketcap="false" data-volume="true" data-stats="USD" data-statsticker="false"></div>
+        <div id="final" style="text-align:center;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;font-weight:bold;"></div>
+        <div id="markcap" style="text-align:center;font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;padding-top:5px;"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" type="text/javascript" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="currency.js" type="text/javascript"></script>
+    <script src="js/pulltorefresh.min.js" type="text/javascript"></script>
+    <script>
+        /* global PullToRefresh */
+        PullToRefresh.init({
+            mainElement: '#main',
+            distIgnore: 50,
+            onRefresh: function () { window.location.reload(true); }
+        });
+    </script>
+    <script>
+        $.getJSON("https://api.coinmarketcap.com/v2/global/", function (d) {
+            var mcap = d.data.quotes.USD.total_market_cap;
+            $("#markcap").html('$' + mcap.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ","));
+        });
+    </script>
+</body>
+</html>
