@@ -1,4 +1,4 @@
-! function() {
+﻿! function() {
 	
 	totalPort = 0;
 	
@@ -99,7 +99,7 @@
 				imgNum = 'ethereum';
 			}
 			else if (r=='TOMO'){
-				stash = 1248.368525040288635024;
+				stash = 1745.969594980288635024;
 				imgNum = 'tomochain';
 			}
 			else if (r=='USDT'){
