@@ -99,7 +99,7 @@
 				imgNum = 'ethereum';
 			}
 			else if (r=='TOMO'){
-				stash = 1745.969594980288635024;
+				stash = 2020.103;
 				imgNum = 'tomochain';
 			}
 			else if (r=='USDT'){
