@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
+    <title>No Frills Dice</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1 text-secondary"><i class="fas fa-dice"></i> No Frills Dice</span>
+    </nav>
+    <div class="container col-12">
+        <div class="form-group mt-2">
+            <label class="text-secondary">Intercept Values</label>
+            <input class="form-control form-control-lg" id="values2" style="width:200px;">
+            <button onclick="rollDiceWithValues()" style="display:none!important;">roll</button>
+        </div>
+        <div id="dice-box2" style="margin-top:-30px;position:relative;z-index:-1;zoom:180%;"></div>
+    </div>
+    <script src="https://unpkg.com/roll-a-die@1.3.0/dist/roll-a-die.js"></script>
+    <script>
+        function response(res) {
+            // returns an array of the values from the dice
+            // console.log(res)
+        }
+
+        function rollDiceWithoutValues() {
+            const element = document.getElementById('dice-box1');
+            const numberOfDice = +document.getElementById('number1').value;
+            const options = {
+                element, // element to display the animated dice in.
+                numberOfDice, // number of dice to use 
+                callback: response
+            }
+            rollADie(options);
+        }
+
+        function rollDiceWithValues() {
+            const element = document.getElementById('dice-box2');
+            const numberOfDice = 2;
+            //const valuesToThrow = document.getElementById('values2').value.split(',').map(val => Number(val));
+            let valuesToThrow = [Math.floor(Math.random() * 6) + 1 ,Math.floor(Math.random() * 6) + 1 ];
+
+            //check input for two numbers
+            let intercepted = document.getElementById('values2').value.split(',').map(val => Number(val));
+            if((Number.isInteger(intercepted[0]) && parseInt(intercepted[0]) > 0 && parseInt(intercepted[0]) < 7) 
+            && (Number.isInteger(intercepted[1]) && parseInt(intercepted[1]) > 0 && parseInt(intercepted[1]) < 7)){
+                var spotA = (Math.random()>0.5)? 1 : 0;
+                var spotB = (spotA == 1) ? 0 : 1;
+                valuesToThrow = [parseInt(intercepted[spotA]), parseInt(intercepted[spotB])];
+            }
+
+            const options = {
+                element, // element to display the animated dice in.
+                numberOfDice, // number of dice to use 
+                values: valuesToThrow, // values to throw. When provided, overides library generated values. Optional.
+                callback: response,
+                noSound:true
+            }
+            rollADie(options);
+        }
+
+        window.setInterval(function () {
+            rollDiceWithValues()
+        }, 2000);
+    </script>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
