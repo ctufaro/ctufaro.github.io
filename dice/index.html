@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
+    <title>No Frills Dice</title>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1 text-secondary"><i class="fas fa-dice"></i> No Frills Dice</span>
+    </nav>
+    <div class="container col-12">
+        <div class="form-group mt-2">
+            <label class="text-secondary">Entre Numeros del 1 - 6</label>
+            <div class="row" style="margin-left:0px">
+                <input class="form-control form-control-lg" id="value1" style="width:50px;">
+                <input class="form-control form-control-lg" id="value2" style="width:50px;margin-left:10px">
+            </div>
+            <button onclick="rollDiceWithValues()" style="display:none!important;">roll</button>
+        </div>
+        <div id="dice-box2" style="margin-top:-30px;position:relative;z-index:-1;zoom:180%;"></div>
+    </div>
+    <script src="https://unpkg.com/roll-a-die@1.3.0/dist/roll-a-die.js"></script>
+    <script>
+        function rollDiceWithValues() {
+            const element = document.getElementById('dice-box2');
+            const numberOfDice = 2;            
+            let valuesToThrow = [Math.floor(Math.random() * 6) + 1, Math.floor(Math.random() * 6) + 1 ];
+
+            //check input for two numbers
+            let val1 = document.getElementById('value1').value;
+            let val2 = document.getElementById('value2').value;
+
+            //check conditions
+            let cond1 = (Number.isInteger(+val1) && parseInt(+val1) > 0 && parseInt(+val1) < 7);
+            let cond2 = (Number.isInteger(+val2) && parseInt(+val2)> 0 && parseInt(+val2) < 7);
+
+            if(cond1 && cond2) { 
+                var spotA=(Math.random()>0.5) ? 1 : 0;
+                var spotB = (spotA == 1) ? 0 : 1;
+                valuesToThrow[spotA] = parseInt(+val1);
+                valuesToThrow[spotB] = parseInt(+val2);
+            }
+
+            const options = {
+                element, // element to display the animated dice in.
+                numberOfDice, // number of dice to use
+                values: valuesToThrow, // values to throw. When provided, overides library generated values. Optional.
+                callback: (res)=>{},
+                noSound:true
+            }
+            rollADie(options);
+        }
+
+        window.setInterval(function () {
+            rollDiceWithValues()
+        }, 2000);
+    </script>
+</body>
+</html>
